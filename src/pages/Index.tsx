@@ -1,20 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  Book, 
-  Trophy, 
-  FileText, 
-  Rocket, 
-  Award,
-  Globe,
-  Newspaper,
-  MessageSquare,
-  Share2
-} from "lucide-react";
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState("home");
-
   return (
     <div className="min-h-screen bg-[#121212] text-white">
       {/* Navigation Bar */}
@@ -36,7 +22,7 @@ const Index = () => {
         <div className="bento-card col-span-2">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/profile-researcher.webp" 
-            alt="AI Generated Profile" 
+            alt="Profile" 
             className="bento-card-image"
           />
           <h2 className="text-sm text-gray-400 mb-2">welcome</h2>
@@ -49,128 +35,91 @@ const Index = () => {
         </div>
 
         {/* Publications Card */}
-        <Link to="/publications" className="bento-card group">
+        <Link to="/publications" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/academic-publications.webp" 
             alt="Publications" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <Book className="w-12 h-12 mb-4 text-blue-400" />
-            <h3 className="text-xl font-bold mb-2">Publications</h3>
-            <p className="text-gray-400">Research papers and academic work</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Publications</h3>
+          <p className="text-gray-400">Research papers and academic work</p>
         </Link>
 
         {/* Projects Card */}
-        <Link to="/projects" className="bento-card group">
+        <Link to="/projects" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/tech-projects.webp" 
             alt="Projects" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <Rocket className="w-12 h-12 mb-4 text-green-400" />
-            <h3 className="text-xl font-bold mb-2">Projects</h3>
-            <p className="text-gray-400">Technical projects and implementations</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Projects</h3>
+          <p className="text-gray-400">Technical projects and implementations</p>
         </Link>
 
         {/* Awards Card */}
-        <Link to="/awards" className="bento-card group">
+        <Link to="/awards" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/awards-trophies.webp" 
             alt="Awards" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <Trophy className="w-12 h-12 mb-4 text-yellow-400" />
-            <h3 className="text-xl font-bold mb-2">Honors and Awards</h3>
-            <p className="text-gray-400">Achievements and recognition</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Awards</h3>
+          <p className="text-gray-400">Achievements and recognition</p>
         </Link>
 
         {/* Grants Card */}
-        <Link to="/grants" className="bento-card group">
+        <Link to="/grants" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/research-grants.webp" 
             alt="Grants" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <FileText className="w-12 h-12 mb-4 text-purple-400" />
-            <h3 className="text-xl font-bold mb-2">Grants</h3>
-            <p className="text-gray-400">Research grants and funding</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Grants</h3>
+          <p className="text-gray-400">Research grants and funding</p>
         </Link>
 
         {/* Patents Card */}
-        <Link to="/patents" className="bento-card group">
+        <Link to="/patents" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/patent-documents.webp" 
             alt="Patents" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <Award className="w-12 h-12 mb-4 text-indigo-400" />
-            <h3 className="text-xl font-bold mb-2">Patents</h3>
-            <p className="text-gray-400">Intellectual property and innovations</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Patents</h3>
+          <p className="text-gray-400">Intellectual property and innovations</p>
         </Link>
 
-        {/* Quote Card */}
-        <div className="bento-card col-span-2">
-          <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/inspirational-quote.webp" 
-            alt="Quote" 
-            className="bento-card-image"
-          />
-          <h2 className="text-2xl font-bold italic">
-            "Education must be the only domain where the service provider (lecturer) evaluates the client (student) and not the other way around."
-          </h2>
-          <p className="text-gray-400 mt-4">Feedback from lectures</p>
-        </div>
-
         {/* Blog Card */}
-        <Link to="/blog" className="bento-card group">
+        <Link to="/blog" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/blog-writing.webp" 
             alt="Blog" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <Newspaper className="w-12 h-12 mb-4 text-blue-400" />
-            <h3 className="text-xl font-bold mb-2">Blog</h3>
-            <p className="text-gray-400">Thoughts and articles</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Blog</h3>
+          <p className="text-gray-400">Thoughts and articles</p>
         </Link>
 
         {/* Social Media Card */}
-        <Link to="/social" className="bento-card group">
+        <Link to="/social" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/social-media.webp" 
             alt="Social Media" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <Share2 className="w-12 h-12 mb-4 text-purple-400" />
-            <h3 className="text-xl font-bold mb-2">Social Media</h3>
-            <p className="text-gray-400">Stay connected</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Social Media</h3>
+          <p className="text-gray-400">Stay connected</p>
         </Link>
 
         {/* Contact Card */}
-        <Link to="/contact" className="bento-card group">
+        <Link to="/contact" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/contact-communication.webp" 
             alt="Contact" 
             className="bento-card-image"
           />
-          <div className="flex flex-col h-full">
-            <MessageSquare className="w-12 h-12 mb-4 text-pink-400" />
-            <h3 className="text-xl font-bold mb-2">Let's work together</h3>
-            <p className="text-gray-400">Get in touch for collaborations</p>
-          </div>
+          <h3 className="text-xl font-bold mb-2">Let's work together</h3>
+          <p className="text-gray-400">Get in touch for collaborations</p>
         </Link>
       </div>
     </div>
