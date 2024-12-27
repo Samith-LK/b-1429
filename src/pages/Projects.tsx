@@ -15,7 +15,7 @@ const sampleProjects: Project[] = [
     id: 1,
     title: "AI-Powered Healthcare Assistant",
     description: "A machine learning system for early disease detection",
-    image: "https://im.runware.ai/image/ws/0.5/ii/healthcare-ai.webp",
+    image: "https://cdn.pixabay.com/photo/2021/09/25/05/25/robot-6654029_960_720.png",
     fullContent: "An advanced healthcare assistant that uses machine learning algorithms to analyze patient data and predict potential health risks. The system processes medical records, lab results, and vital signs to provide early warning signs of diseases.",
     technologies: ["Python", "TensorFlow", "React", "Node.js"]
   },
