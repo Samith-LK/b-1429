@@ -20,18 +20,24 @@ const Index = () => {
       <div className="bento-grid">
         {/* Profile Card */}
         <div className="bento-card col-span-2">
-          <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/profile-researcher.webp" 
-            alt="Profile" 
-            className="bento-card-image"
-          />
-          <h2 className="text-sm text-gray-400 mb-2">welcome</h2>
-          <h1 className="text-4xl font-bold mb-4">
-            Hi, I'm <span className="text-blue-400">Your Name</span>
-          </h1>
-          <p className="text-gray-300 text-lg">
-            A software developer with a passion for creating beautiful and functional web experiences
-          </p>
+          <div className="flex items-center gap-8">
+            <img 
+              src="https://im.runware.ai/image/ws/0.5/ii/profile-researcher.webp" 
+              alt="Profile" 
+              className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
+            />
+            <div className="text-left">
+              <h2 className="text-sm text-gray-400 mb-2">welcome</h2>
+              <h1 className="text-4xl font-bold mb-4">
+                Hi, I'm <span className="text-blue-400">Dr. Sarah Johnson</span>
+              </h1>
+              <p className="text-gray-300 text-lg">
+                A passionate researcher and innovator in artificial intelligence and machine learning, 
+                with a focus on developing solutions that bridge the gap between theoretical advancement 
+                and practical applications.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Publications Card */}
@@ -42,7 +48,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Publications</h3>
-          <p className="text-gray-400">Research papers and academic work</p>
+          <p className="text-gray-400">Explore my research papers and academic contributions in AI and ML</p>
         </Link>
 
         {/* Projects Card */}
@@ -53,7 +59,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Projects</h3>
-          <p className="text-gray-400">Technical projects and implementations</p>
+          <p className="text-gray-400">Discover innovative technical implementations and research projects</p>
         </Link>
 
         {/* Awards Card */}
@@ -64,7 +70,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Awards</h3>
-          <p className="text-gray-400">Achievements and recognition</p>
+          <p className="text-gray-400">Recognition and honors for research excellence</p>
         </Link>
 
         {/* Grants Card */}
@@ -75,7 +81,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Grants</h3>
-          <p className="text-gray-400">Research grants and funding</p>
+          <p className="text-gray-400">Funded research initiatives and ongoing projects</p>
         </Link>
 
         {/* Patents Card */}
@@ -86,7 +92,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Patents</h3>
-          <p className="text-gray-400">Intellectual property and innovations</p>
+          <p className="text-gray-400">Innovative technologies and intellectual property</p>
         </Link>
 
         {/* Blog Card */}
@@ -97,7 +103,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Blog</h3>
-          <p className="text-gray-400">Thoughts and articles</p>
+          <p className="text-gray-400">Insights and thoughts on AI, ML, and research</p>
         </Link>
 
         {/* Social Media Card */}
@@ -108,7 +114,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Social Media</h3>
-          <p className="text-gray-400">Stay connected</p>
+          <p className="text-gray-400">Connect with me across various platforms</p>
         </Link>
 
         {/* Contact Card */}
@@ -119,7 +125,7 @@ const Index = () => {
             className="bento-card-image"
           />
           <h3 className="text-xl font-bold mb-2">Let's work together</h3>
-          <p className="text-gray-400">Get in touch for collaborations</p>
+          <p className="text-gray-400">Reach out for collaborations and opportunities</p>
         </Link>
       </div>
     </div>
