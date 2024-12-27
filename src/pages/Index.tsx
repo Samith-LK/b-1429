@@ -9,8 +9,10 @@ const Index = () => {
           <div className="flex space-x-8">
             <Link to="/" className="text-white hover:text-blue-400">Home</Link>
             <Link to="/research" className="text-gray-400 hover:text-white">Research</Link>
-            <Link to="/entrepreneur" className="text-gray-400 hover:text-white">Entrepreneur</Link>
-            <Link to="/volunteer" className="text-gray-400 hover:text-white">Volunteer</Link>
+            <Link to="/academic" className="text-gray-400 hover:text-white">Academic</Link>
+            <Link to="/sports" className="text-gray-400 hover:text-white">Sports</Link>
+            <Link to="/volunteering" className="text-gray-400 hover:text-white">Volunteering</Link>
+            <Link to="/competitions" className="text-gray-400 hover:text-white">Competitions</Link>
             <Link to="/about" className="text-gray-400 hover:text-white">About</Link>
             <Link to="/resume" className="text-gray-400 hover:text-white">Resume</Link>
           </div>
@@ -40,15 +42,15 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Publications Card */}
-        <Link to="/publications" className="bento-card">
+        {/* Academic Card (formerly Publications) */}
+        <Link to="/academic" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/academic-publications.webp" 
-            alt="Publications" 
+            src="https://im.runware.ai/image/ws/0.5/ii/academic-achievements.webp" 
+            alt="Academic" 
             className="bento-card-image"
           />
-          <h3 className="text-xl font-bold mb-2">Publications</h3>
-          <p className="text-gray-400">Explore my research papers and academic contributions in AI and ML</p>
+          <h3 className="text-xl font-bold mb-2">Academic</h3>
+          <p className="text-gray-400">Explore academic achievements and scholarly work</p>
         </Link>
 
         {/* Projects Card */}
@@ -73,26 +75,37 @@ const Index = () => {
           <p className="text-gray-400">Recognition and honors for research excellence</p>
         </Link>
 
-        {/* Grants Card */}
-        <Link to="/grants" className="bento-card">
+        {/* Sports Card (formerly Grants) */}
+        <Link to="/sports" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/research-grants.webp" 
-            alt="Grants" 
+            src="https://im.runware.ai/image/ws/0.5/ii/sports-activities.webp" 
+            alt="Sports" 
             className="bento-card-image"
           />
-          <h3 className="text-xl font-bold mb-2">Grants</h3>
-          <p className="text-gray-400">Funded research initiatives and ongoing projects</p>
+          <h3 className="text-xl font-bold mb-2">Sports</h3>
+          <p className="text-gray-400">Athletic achievements and sports activities</p>
         </Link>
 
-        {/* Patents Card */}
-        <Link to="/patents" className="bento-card">
+        {/* Volunteering Card (formerly Patents) */}
+        <Link to="/volunteering" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/patent-documents.webp" 
-            alt="Patents" 
+            src="https://im.runware.ai/image/ws/0.5/ii/volunteer-work.webp" 
+            alt="Volunteering" 
             className="bento-card-image"
           />
-          <h3 className="text-xl font-bold mb-2">Patents</h3>
-          <p className="text-gray-400">Innovative technologies and intellectual property</p>
+          <h3 className="text-xl font-bold mb-2">Volunteering</h3>
+          <p className="text-gray-400">Community service and volunteer activities</p>
+        </Link>
+
+        {/* New Competitions Card */}
+        <Link to="/competitions" className="bento-card">
+          <img 
+            src="https://im.runware.ai/image/ws/0.5/ii/competitions-awards.webp" 
+            alt="Competitions" 
+            className="bento-card-image"
+          />
+          <h3 className="text-xl font-bold mb-2">Competitions</h3>
+          <p className="text-gray-400">Achievements in various competitions and challenges</p>
         </Link>
 
         {/* Blog Card */}
