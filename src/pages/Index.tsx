@@ -1,18 +1,38 @@
-import { useState, useEffect } from "react";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { 
+  Book, 
+  Trophy, 
+  FileText, 
+  Rocket, 
+  Award,
+  Globe,
+  Newspaper,
+  MessageSquare,
+  Share2
+} from "lucide-react";
 
 const Index = () => {
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
+  const [activeTab, setActiveTab] = useState("home");
 
   return (
     <div className="min-h-screen bg-[#121212] text-white">
+      {/* Navigation Bar */}
+      <nav className="border-b border-gray-800 px-6 py-4">
+        <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div className="flex space-x-8">
+            <Link to="/" className="text-white hover:text-blue-400">Home</Link>
+            <Link to="/research" className="text-gray-400 hover:text-white">Research</Link>
+            <Link to="/entrepreneur" className="text-gray-400 hover:text-white">Entrepreneur</Link>
+            <Link to="/volunteer" className="text-gray-400 hover:text-white">Volunteer</Link>
+            <Link to="/about" className="text-gray-400 hover:text-white">About</Link>
+            <Link to="/resume" className="text-gray-400 hover:text-white">Resume</Link>
+          </div>
+        </div>
+      </nav>
+
       <div className="bento-grid">
-        {/* Welcome Card */}
+        {/* Profile Card */}
         <div className="bento-card col-span-2">
           <h2 className="text-sm text-gray-400 mb-2">welcome</h2>
           <h1 className="text-4xl font-bold mb-4">
@@ -23,68 +43,103 @@ const Index = () => {
           </p>
         </div>
 
-        {/* About Card */}
-        <div className="bento-card row-span-2">
-          <h2 className="text-2xl font-bold mb-6">About me</h2>
-          <p className="text-gray-300 text-lg mb-6">
-            I specialize in building modern web applications using React, TypeScript, and other cutting-edge technologies.
-          </p>
-          <div className="space-y-4">
-            <p className="text-lg text-gray-400">My tools:</p>
-            <ul className="list-disc list-inside text-gray-300 text-lg space-y-2">
-              <li>React</li>
-              <li>TypeScript</li>
-              <li>Node.js</li>
-              <li>Tailwind CSS</li>
-            </ul>
+        {/* Publications Card */}
+        <Link to="/publications" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Book className="w-12 h-12 mb-4 text-blue-400" />
+            <h3 className="text-xl font-bold mb-2">Publications</h3>
+            <p className="text-gray-400">Research papers and academic work</p>
           </div>
-        </div>
-
-        {/* Time Card */}
-        <div className="bento-card">
-          <h2 className="text-lg text-gray-400 mb-4">Current Time</h2>
-          <p className="text-3xl font-bold font-mono">
-            {time.toLocaleTimeString()}
-          </p>
-        </div>
-
-        {/* Contact Card */}
-        <div className="bento-card">
-          <h2 className="text-2xl font-bold mb-6">Let's Connect</h2>
-          <div className="flex space-x-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
-               className="p-3 rounded-full hover:bg-gray-800 transition-colors">
-              <Github className="w-8 h-8" />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-               className="p-3 rounded-full hover:bg-gray-800 transition-colors">
-              <Linkedin className="w-8 h-8" />
-            </a>
-            <a href="mailto:your@email.com"
-               className="p-3 rounded-full hover:bg-gray-800 transition-colors">
-              <Mail className="w-8 h-8" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-               className="p-3 rounded-full hover:bg-gray-800 transition-colors">
-              <Twitter className="w-8 h-8" />
-            </a>
-          </div>
-        </div>
+        </Link>
 
         {/* Projects Card */}
-        <div className="bento-card col-span-2">
-          <h2 className="text-2xl font-bold mb-6">Featured Projects</h2>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="p-6 bg-card-hover rounded-lg">
-              <h3 className="text-xl font-bold mb-3">Project 1</h3>
-              <p className="text-gray-300">Description of your amazing project</p>
-            </div>
-            <div className="p-6 bg-card-hover rounded-lg">
-              <h3 className="text-xl font-bold mb-3">Project 2</h3>
-              <p className="text-gray-300">Description of another cool project</p>
-            </div>
+        <Link to="/projects" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Rocket className="w-12 h-12 mb-4 text-green-400" />
+            <h3 className="text-xl font-bold mb-2">Projects</h3>
+            <p className="text-gray-400">Technical projects and implementations</p>
           </div>
+        </Link>
+
+        {/* Awards Card */}
+        <Link to="/awards" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Trophy className="w-12 h-12 mb-4 text-yellow-400" />
+            <h3 className="text-xl font-bold mb-2">Honors and Awards</h3>
+            <p className="text-gray-400">Achievements and recognition</p>
+          </div>
+        </Link>
+
+        {/* Grants Card */}
+        <Link to="/grants" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <FileText className="w-12 h-12 mb-4 text-purple-400" />
+            <h3 className="text-xl font-bold mb-2">Grants</h3>
+            <p className="text-gray-400">Research grants and funding</p>
+          </div>
+        </Link>
+
+        {/* Entrepreneur Card */}
+        <Link to="/entrepreneur" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Award className="w-12 h-12 mb-4 text-red-400" />
+            <h3 className="text-xl font-bold mb-2">Entrepreneur</h3>
+            <p className="text-gray-400">Business ventures and startups</p>
+          </div>
+        </Link>
+
+        {/* Patents Card */}
+        <Link to="/patents" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Award className="w-12 h-12 mb-4 text-indigo-400" />
+            <h3 className="text-xl font-bold mb-2">Patents</h3>
+            <p className="text-gray-400">Intellectual property and innovations</p>
+          </div>
+        </Link>
+
+        {/* Quote Card */}
+        <div className="bento-card col-span-2">
+          <h2 className="text-2xl font-bold italic">
+            "Education must be the only domain where the service provider (lecturer) evaluates the client (student) and not the other way around."
+          </h2>
+          <p className="text-gray-400 mt-4">Feedback from lectures</p>
         </div>
+
+        {/* Volunteer Card */}
+        <Link to="/volunteer" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Globe className="w-12 h-12 mb-4 text-green-400" />
+            <h3 className="text-xl font-bold mb-2">Volunteer</h3>
+            <p className="text-gray-400">Community service and contributions</p>
+          </div>
+        </Link>
+
+        {/* Blog Card */}
+        <Link to="/blog" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Newspaper className="w-12 h-12 mb-4 text-blue-400" />
+            <h3 className="text-xl font-bold mb-2">Blog</h3>
+            <p className="text-gray-400">Thoughts and articles</p>
+          </div>
+        </Link>
+
+        {/* Social Media Card */}
+        <Link to="/social" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <Share2 className="w-12 h-12 mb-4 text-purple-400" />
+            <h3 className="text-xl font-bold mb-2">Social Media</h3>
+            <p className="text-gray-400">Stay connected</p>
+          </div>
+        </Link>
+
+        {/* Contact Card */}
+        <Link to="/contact" className="bento-card group">
+          <div className="flex flex-col h-full">
+            <MessageSquare className="w-12 h-12 mb-4 text-pink-400" />
+            <h3 className="text-xl font-bold mb-2">Let's work together</h3>
+            <p className="text-gray-400">Get in touch for collaborations</p>
+          </div>
+        </Link>
       </div>
     </div>
   );
