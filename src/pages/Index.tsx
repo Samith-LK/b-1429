@@ -30,9 +30,9 @@ const Index = () => {
               className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
             />
             <div className="text-left">
-              <h2 className="text-sm text-gray-400 mb-2">welcome</h2>
+              <h2 className="text-sm text-gray-400 mb-2">Welcome</h2>
               <h1 className="text-4xl font-bold mb-4">
-                Hi, I'm <span className="text-blue-400">Dr. Sarah Johnson</span>
+                Hi, I'm <span className="text-blue-400">Samith Chathuranga</span>
               </h1>
               <p className="text-gray-300 text-lg">
                 A passionate researcher and innovator in artificial intelligence and machine learning, 
