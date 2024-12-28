@@ -25,7 +25,7 @@ const Index = () => {
         <div className="bento-card col-span-2">
           <div className="flex items-center gap-8">
             <img 
-              src="https://cdn.pixabay.com/photo/2021/09/25/05/25/robot-6654029_960_720.png" 
+              src="/src/images/profilepicNoBack.webp" 
               alt="Profile" 
               className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
             />
