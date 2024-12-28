@@ -46,7 +46,7 @@ const Index = () => {
         {/* Experiences Card */}
         <Link to="/experiences" className="bento-card">
           <img 
-            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
+            src="/src/images/undraw_feeling-proud_tdos.svg" 
             alt="Experiences" 
             className="bento-card-image"
           />
@@ -57,7 +57,7 @@ const Index = () => {
         {/* Academic Card */}
         <Link to="/academic" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/academic-achievements.webp" 
+            src="/src/images/undraw_detailed-analysis_w5a8.svg" 
             alt="Academic" 
             className="bento-card-image"
           />
@@ -112,7 +112,7 @@ const Index = () => {
         {/* Competitions Card */}
         <Link to="/competitions" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/competitions-awards.webp" 
+            src="/src/images/undraw_firmware_3fxd.svg" 
             alt="Competitions" 
             className="bento-card-image"
           />
@@ -123,7 +123,7 @@ const Index = () => {
         {/* Blog Card */}
         <Link to="/blog" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/blog-writing.webp" 
+            src="/src/images/undraw_social-update_tf0a.svg" 
             alt="Blog" 
             className="bento-card-image"
           />
@@ -134,7 +134,7 @@ const Index = () => {
         {/* Social Media Card */}
         <Link to="/social" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/social-media.webp" 
+            src="/src/images/undraw_social-notifications_mzoe.svg" 
             alt="Social Media" 
             className="bento-card-image"
           />
@@ -145,7 +145,7 @@ const Index = () => {
         {/* Contact Card */}
         <Link to="/contact" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/contact-communication.webp" 
+            src="/src/images/undraw_phone-call_lpny.svg" 
             alt="Contact" 
             className="bento-card-image"
           />
