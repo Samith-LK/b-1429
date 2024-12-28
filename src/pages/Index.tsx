@@ -90,7 +90,7 @@ const Index = () => {
         {/* Sports Card */}
         <Link to="/sports" className="bento-card">
           <img 
-            src="https://im.runware.ai/image/ws/0.5/ii/sports-activities.webp" 
+            src="/src/images/undraw_home-run_n1g7.svg" 
             alt="Sports" 
             className="bento-card-image"
           />
