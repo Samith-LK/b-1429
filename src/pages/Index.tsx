@@ -90,7 +90,7 @@ const Index = () => {
         {/* Sports Card */}
         <Link to="/sports" className="bento-card">
           <img 
-            src="/src/images/undraw_home-run_n1g7.svg" 
+            src="/src/images/undraw_greek-freak_p532.svg" 
             alt="Sports" 
             className="bento-card-image"
           />
