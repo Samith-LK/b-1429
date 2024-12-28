@@ -24,86 +24,51 @@ const PlaceholderPage = ({ title, content, image }: { title: string; content?: s
   </div>
 );
 
-const SkillsPage = () => (
+const AboutPage = () => (
   <div className="min-h-screen bg-[#121212] text-white p-8">
-    <h1 className="text-4xl font-bold mb-8">Skills & Expertise</h1>
-    <div className="max-w-4xl mx-auto space-y-8">
-      <div className="bg-gray-800 rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">AI and Machine Learning</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <ul className="list-disc list-inside space-y-2">
-            <li>TensorFlow</li>
-            <li>PyTorch</li>
-            <li>LangChain</li>
-          </ul>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Neo4j</li>
-            <li>Pinecone</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="bg-gray-800 rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">Programming / Scripting Languages</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <ul className="list-disc list-inside space-y-2">
-            <li>MicroC</li>
-            <li>C /C++</li>
-            <li>Java</li>
-            <li>MySQL</li>
-          </ul>
-          <ul className="list-disc list-inside space-y-2">
-            <li>JavaScript</li>
-            <li>Arduino</li>
-            <li>React</li>
-            <li>Python</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="bg-gray-800 rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">PLC/HMI Programming</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <ul className="list-disc list-inside space-y-2">
-            <li>Xinje PLC & HMI</li>
-            <li>Omron PLC</li>
-            <li>Mitsubishi PLC</li>
-          </ul>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Unitronics PLC & HMI</li>
-            <li>Samkoon HMI</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="bg-gray-800 rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">Hardware Design & Other Tools</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <ul className="list-disc list-inside space-y-2">
-            <li>Eagle CAD</li>
-            <li>KiCAD</li>
-            <li>Proteus</li>
-            <li>DGLux5</li>
-          </ul>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Onshape</li>
-            <li>QT Creator</li>
-            <li>OpenCV</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="bg-gray-800 rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">Version Control</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <ul className="list-disc list-inside space-y-2">
-            <li>GitHub</li>
-            <li>Azure DevOps</li>
-          </ul>
-          <ul className="list-disc list-inside space-y-2">
-            <li>Git</li>
-          </ul>
-        </div>
+    <h1 className="text-4xl font-bold mb-8">About Me</h1>
+    <div className="max-w-4xl mx-auto">
+      <p className="text-gray-300 leading-relaxed mb-6">
+        As a dedicated researcher and innovator in the field of artificial intelligence and machine learning, 
+        I've spent years exploring the fascinating intersection of theoretical advancement and practical applications. 
+        My journey began with a deep curiosity about how technology can enhance human capabilities and solve complex 
+        real-world problems. This passion has driven me to pursue cutting-edge research while maintaining a strong 
+        focus on practical implementations that can make a meaningful impact.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-12">
+        Beyond my technical expertise, I believe in the power of collaboration and knowledge sharing. Throughout my 
+        career, I've had the privilege of working with talented teams across various domains, from academic research 
+        to industry applications. This diverse experience has shaped my holistic approach to problem-solving and 
+        reinforced my commitment to creating solutions that are not only technically sophisticated but also 
+        accessible and beneficial to end-users.
+      </p>
+      
+      <div className="flex overflow-hidden space-x-4 animate-slide">
+        <img 
+          src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
+          alt="Tech Innovation" 
+          className="w-64 h-48 object-cover rounded-lg flex-shrink-0"
+        />
+        <img 
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+          alt="Research Work" 
+          className="w-64 h-48 object-cover rounded-lg flex-shrink-0"
+        />
+        <img 
+          src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" 
+          alt="Code Development" 
+          className="w-64 h-48 object-cover rounded-lg flex-shrink-0"
+        />
+        <img 
+          src="https://images.unsplash.com/photo-1483058712412-4245e9b90334" 
+          alt="Workspace" 
+          className="w-64 h-48 object-cover rounded-lg flex-shrink-0"
+        />
+        <img 
+          src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
+          alt="Team Collaboration" 
+          className="w-64 h-48 object-cover rounded-lg flex-shrink-0"
+        />
       </div>
     </div>
   </div>
@@ -151,13 +116,7 @@ const App = () => (
             />
           } />
           <Route path="/skills" element={<SkillsPage />} />
-          <Route path="/about" element={
-            <PlaceholderPage 
-              title="About" 
-              content="Learn about our mission, values, and the team behind our success. We're passionate about technology and committed to delivering innovative solutions that make a difference."
-              image="https://images.unsplash.com/photo-1501854140801-50d01698950b"
-            />
-          } />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={
             <PlaceholderPage 
               title="Contact" 

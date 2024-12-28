@@ -21,8 +21,8 @@ const Index = () => {
       </nav>
 
       <div className="bento-grid">
-        {/* Profile Card */}
-        <div className="bento-card col-span-2">
+        {/* Profile Card - Now links to About */}
+        <Link to="/about" className="bento-card col-span-2">
           <div className="flex items-center gap-8">
             <img 
               src="/src/images/profilepicNoBack.webp" 
@@ -41,7 +41,7 @@ const Index = () => {
               </p>
             </div>
           </div>
-        </div>
+        </Link>
 
         {/* Experiences Card */}
         <Link to="/experiences" className="bento-card">
