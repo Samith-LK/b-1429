@@ -9,6 +9,7 @@ import Sports from "./pages/Sports";
 import Volunteering from "./pages/Volunteering";
 import Competitions from "./pages/Competitions";
 import Experiences from "./pages/Experiences";
+import SkillsPage from "./pages/SkillsPage";
 
 const queryClient = new QueryClient();
 
