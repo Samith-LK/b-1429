@@ -13,6 +13,7 @@ const Index = () => {
             <Link to="/sports" className="text-gray-400 hover:text-white">Sports</Link>
             <Link to="/volunteering" className="text-gray-400 hover:text-white">Volunteering</Link>
             <Link to="/competitions" className="text-gray-400 hover:text-white">Competitions</Link>
+            <Link to="/experiences" className="text-gray-400 hover:text-white">Experiences</Link>
             <Link to="/about" className="text-gray-400 hover:text-white">About</Link>
             <Link to="/resume" className="text-gray-400 hover:text-white">Resume</Link>
           </div>
@@ -42,7 +43,18 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Academic Card (formerly Publications) */}
+        {/* Experiences Card */}
+        <Link to="/experiences" className="bento-card">
+          <img 
+            src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952" 
+            alt="Experiences" 
+            className="bento-card-image"
+          />
+          <h3 className="text-xl font-bold mb-2">Experiences</h3>
+          <p className="text-gray-400">Professional journey and industry expertise</p>
+        </Link>
+
+        {/* Academic Card */}
         <Link to="/academic" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/academic-achievements.webp" 
@@ -75,7 +87,7 @@ const Index = () => {
           <p className="text-gray-400">Recognition and honors for research excellence</p>
         </Link>
 
-        {/* Sports Card (formerly Grants) */}
+        {/* Sports Card */}
         <Link to="/sports" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/sports-activities.webp" 
@@ -86,7 +98,7 @@ const Index = () => {
           <p className="text-gray-400">Athletic achievements and sports activities</p>
         </Link>
 
-        {/* Volunteering Card (formerly Patents) */}
+        {/* Volunteering Card */}
         <Link to="/volunteering" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/volunteer-work.webp" 
@@ -97,7 +109,7 @@ const Index = () => {
           <p className="text-gray-400">Community service and volunteer activities</p>
         </Link>
 
-        {/* New Competitions Card */}
+        {/* Competitions Card */}
         <Link to="/competitions" className="bento-card">
           <img 
             src="https://im.runware.ai/image/ws/0.5/ii/competitions-awards.webp" 
