@@ -57,7 +57,7 @@ const Index = () => {
         {/* Skills & Expertise Card */}
         <Link to="/skills" className="bento-card">
           <img 
-            src="/src/images/undraw_detailed-analysis_w5a8.svg" 
+            src="/src/images/undraw_percentages_wi9e.svg" 
             alt="Skills & Expertise" 
             className="bento-card-image"
           />
