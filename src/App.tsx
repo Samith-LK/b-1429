@@ -24,6 +24,91 @@ const PlaceholderPage = ({ title, content, image }: { title: string; content?: s
   </div>
 );
 
+const SkillsPage = () => (
+  <div className="min-h-screen bg-[#121212] text-white p-8">
+    <h1 className="text-4xl font-bold mb-8">Skills & Expertise</h1>
+    <div className="max-w-4xl mx-auto space-y-8">
+      <div className="bg-gray-800 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">AI and Machine Learning</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <ul className="list-disc list-inside space-y-2">
+            <li>TensorFlow</li>
+            <li>PyTorch</li>
+            <li>LangChain</li>
+          </ul>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Neo4j</li>
+            <li>Pinecone</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="bg-gray-800 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">Programming / Scripting Languages</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <ul className="list-disc list-inside space-y-2">
+            <li>MicroC</li>
+            <li>C /C++</li>
+            <li>Java</li>
+            <li>MySQL</li>
+          </ul>
+          <ul className="list-disc list-inside space-y-2">
+            <li>JavaScript</li>
+            <li>Arduino</li>
+            <li>React</li>
+            <li>Python</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="bg-gray-800 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">PLC/HMI Programming</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <ul className="list-disc list-inside space-y-2">
+            <li>Xinje PLC & HMI</li>
+            <li>Omron PLC</li>
+            <li>Mitsubishi PLC</li>
+          </ul>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Unitronics PLC & HMI</li>
+            <li>Samkoon HMI</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="bg-gray-800 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">Hardware Design & Other Tools</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <ul className="list-disc list-inside space-y-2">
+            <li>Eagle CAD</li>
+            <li>KiCAD</li>
+            <li>Proteus</li>
+            <li>DGLux5</li>
+          </ul>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Onshape</li>
+            <li>QT Creator</li>
+            <li>OpenCV</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="bg-gray-800 rounded-lg p-6">
+        <h2 className="text-2xl font-semibold mb-4 text-yellow-400">Version Control</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <ul className="list-disc list-inside space-y-2">
+            <li>GitHub</li>
+            <li>Azure DevOps</li>
+          </ul>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -65,13 +150,7 @@ const App = () => (
               image="https://images.unsplash.com/photo-1470813740244-df37b8c1edcb"
             />
           } />
-          <Route path="/social" element={
-            <PlaceholderPage 
-              title="Social Media" 
-              content="Connect with us across various social media platforms. Follow our journey, engage with our content, and join our growing community of technology enthusiasts."
-              image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-            />
-          } />
+          <Route path="/skills" element={<SkillsPage />} />
           <Route path="/about" element={
             <PlaceholderPage 
               title="About" 

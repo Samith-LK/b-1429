@@ -54,6 +54,17 @@ const Index = () => {
           <p className="text-gray-400">Professional journey and industry expertise</p>
         </Link>
 
+        {/* Skills & Expertise Card */}
+        <Link to="/skills" className="bento-card">
+          <img 
+            src="/src/images/undraw_detailed-analysis_w5a8.svg" 
+            alt="Skills & Expertise" 
+            className="bento-card-image"
+          />
+          <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
+          <p className="text-gray-400">Technical skills and professional competencies</p>
+        </Link>
+
         {/* Academic Card */}
         <Link to="/academic" className="bento-card">
           <img 
@@ -129,17 +140,6 @@ const Index = () => {
           />
           <h3 className="text-xl font-bold mb-2">Blog</h3>
           <p className="text-gray-400">Insights and thoughts on AI, ML, and research</p>
-        </Link>
-
-        {/* Social Media Card */}
-        <Link to="/social" className="bento-card">
-          <img 
-            src="/src/images/undraw_social-notifications_mzoe.svg" 
-            alt="Social Media" 
-            className="bento-card-image"
-          />
-          <h3 className="text-xl font-bold mb-2">Social Media</h3>
-          <p className="text-gray-400">Connect with me across various platforms</p>
         </Link>
 
         {/* Contact Card */}
