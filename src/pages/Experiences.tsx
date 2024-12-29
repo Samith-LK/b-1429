@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react';
-import Navigation from '@/components/Navigation';
 
 const LazyImage = lazy(() => import('@/components/LazyImage'));
 
@@ -42,7 +41,6 @@ const Experiences = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white">
-      <Navigation />
       <div className="max-w-4xl mx-auto p-8 space-y-8">
         <h1 className="text-4xl font-bold mb-8">Professional Experience</h1>
         {experiences.map((experience, index) => (
