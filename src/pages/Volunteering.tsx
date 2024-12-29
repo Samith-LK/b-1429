@@ -1,39 +1,53 @@
 const Volunteering = () => {
   const volunteerWork = [
     {
-      title: "Local Food Bank Volunteer",
-      period: "2022-2023",
-      description: "Organized and distributed food to families in need, serving over 1000 families",
-      image: "https://im.runware.ai/image/ws/0.5/ii/food-bank.webp"
+      title: "Vice-Chairman - IEEE Young Professional Sri Lanka 2018",
+      description: ""
     },
     {
-      title: "Environmental Clean-up Initiative",
-      period: "2021-2022",
-      description: "Led a team of 50 volunteers in coastal clean-up operations",
-      image: "https://im.runware.ai/image/ws/0.5/ii/environmental-cleanup.webp"
+      title: "Founding Chairman - IEEE Wayamba University of Sri Lanka Student Branch",
+      description: ""
     },
     {
-      title: "Youth Mentorship Program",
-      period: "2020-2021",
-      description: "Mentored underprivileged youth in STEM subjects",
-      image: "https://im.runware.ai/image/ws/0.5/ii/youth-mentorship.webp"
+      title: "Delegate - Representing Sri Lanka",
+      description: "IEEE Region 10 (Asia-Pacific) Student | Young Professionals | Women in Engineering Congress 2015 at Colombo Sri Lanka"
+    },
+    {
+      title: "Member of Publicity & Social Media Committee",
+      description: "IEEE Region10 (Asia-Pacific) Student | Young Professional | Women in Engineering Congress 2015 at Colombo Sri Lanka"
+    },
+    {
+      title: "Leader of Publicity & Social Media Committee",
+      description: "IEEE Sri Lanka Student | Young Professional | Women in Engineering Congress 2015 at Colombo Sri Lanka"
+    },
+    {
+      title: "Student Ambassador - Microsoft Sri Lanka",
+      description: ""
+    },
+    {
+      title: "Member of Technical Committee",
+      description: "WICC (Wayamba International Conference 2014) at Wayamba University of Sri Lanka"
+    },
+    {
+      title: "Member of Technical Committee",
+      description: "ASETRTE (Annual Symposium of Department of Electronics) at Wayamba University of Sri Lanka"
+    },
+    {
+      title: "Treasurer of Mathematical Society (2014/2015)",
+      description: "Wayamba University of Sri Lanka"
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">Volunteer Work</h1>
+      <h1 className="text-4xl font-bold mb-8">Volunteer Work & Leadership</h1>
       <div className="max-w-4xl mx-auto space-y-8">
         {volunteerWork.map((work, index) => (
           <div key={index} className="bg-card p-6 rounded-2xl border border-gray-800">
-            <img 
-              src={work.image} 
-              alt={work.title}
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
             <h2 className="text-2xl font-bold mb-2 text-blue-400">{work.title}</h2>
-            <p className="text-gray-400 mb-2">{work.period}</p>
-            <p className="text-gray-300">{work.description}</p>
+            {work.description && (
+              <p className="text-gray-300">{work.description}</p>
+            )}
           </div>
         ))}
       </div>

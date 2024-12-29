@@ -1,22 +1,44 @@
 const Academic = () => {
   const academicAchievements = [
     {
-      title: "Dean's List Recognition",
-      year: "2023",
-      description: "Achieved academic excellence with a GPA of 3.95/4.0",
-      image: "https://im.runware.ai/image/ws/0.5/ii/deans-list.webp"
+      title: "B.Sc Applied Science",
+      institution: "Wayamba University of Sri Lanka",
+      description: ""
     },
     {
-      title: "Research Publication in Computer Science",
-      year: "2022",
-      description: "Published research on AI applications in healthcare",
-      image: "https://im.runware.ai/image/ws/0.5/ii/research-publication.webp"
+      title: "Embedded Machine Learning for Edge Computing",
+      institution: "University of Moratuwa | ENTC",
+      description: ""
     },
     {
-      title: "Academic Excellence Scholarship",
-      year: "2021",
-      description: "Awarded full scholarship for outstanding academic performance",
-      image: "https://im.runware.ai/image/ws/0.5/ii/scholarship.webp"
+      title: "Embedded Product Design for IoT",
+      institution: "University of Moratuwa | ENTC",
+      description: ""
+    },
+    {
+      title: "Certificate in Project Management",
+      institution: "Global Eye International",
+      description: ""
+    },
+    {
+      title: "DevOps Training",
+      institution: "Simplilearn",
+      description: ""
+    },
+    {
+      title: "Building Real-World Applications With LLMs",
+      institution: "Udacity",
+      description: ""
+    },
+    {
+      title: "Build a Neo4j-backed Chatbot using Python",
+      institution: "Neo4j",
+      description: ""
+    },
+    {
+      title: "G.C.E. O/L & A/L (Combined Mathematics)",
+      institution: "Ananda College, Colombo 10",
+      description: ""
     }
   ];
 
@@ -26,14 +48,11 @@ const Academic = () => {
       <div className="max-w-4xl mx-auto space-y-8">
         {academicAchievements.map((achievement, index) => (
           <div key={index} className="bg-card p-6 rounded-2xl border border-gray-800">
-            <img 
-              src={achievement.image} 
-              alt={achievement.title}
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
             <h2 className="text-2xl font-bold mb-2 text-blue-400">{achievement.title}</h2>
-            <p className="text-gray-400 mb-2">{achievement.year}</p>
-            <p className="text-gray-300">{achievement.description}</p>
+            <p className="text-gray-400 mb-2">{achievement.institution}</p>
+            {achievement.description && (
+              <p className="text-gray-300">{achievement.description}</p>
+            )}
           </div>
         ))}
       </div>
