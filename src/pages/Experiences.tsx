@@ -1,36 +1,68 @@
+import { lazy, Suspense } from 'react';
+import Navigation from '@/components/Navigation';
+
+const LazyImage = lazy(() => import('@/components/LazyImage'));
+
 const Experiences = () => {
   const experiences = [
     {
-      title: "Senior Software Engineer",
-      company: "Tech Innovations Inc.",
-      period: "2021-2023",
-      description: "Led development of AI-powered solutions for enterprise clients. Managed a team of 5 developers and implemented cutting-edge machine learning algorithms.",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952"
+      title: "EMBEDDED ENGINEER - AI",
+      company: "IPD COLOMBO PVT.LTD",
+      period: "Sep 2022 - Present",
+      achievements: [
+        "Developed RAG based chatbots to boost productivity, using cutting-edge LLMs and AI tools",
+        "Designed front-end applications for Building Management Systems (BMS) using React, DGLux5, Node-Red, and Skyspark",
+        "Implemented a communication protocol conversion method to the DER-related IEEE2030.5 protocol"
+      ]
     },
     {
-      title: "Machine Learning Engineer",
-      company: "Data Solutions Co.",
-      period: "2019-2021",
-      description: "Developed and deployed machine learning models for predictive analytics. Improved system efficiency by 40% through optimization techniques.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+      title: "ELECTRONICS ENGINEER",
+      company: "HITECH SOLUTIONS PVT. LTD",
+      period: "June 2016 - June 2022",
+      achievements: [
+        "Optimized vision-based width and length measuring software, enhancing precision and operational efficiency",
+        "Led cross-functional teams to design and deploy custom industrial automation solutions",
+        "Engineered end-to-end automation for:",
+        [
+          "Fabric relaxing, inspection, and cutting machines",
+          "Automatic tire cutting machines",
+          "Automatic wrapping systems",
+          "Gantry cranes, conveyor systems, and goods hoists",
+          "Gate barriers, parking systems, and wire-checking",
+          "IoT-based data monitoring systems for real-time operational insights"
+        ],
+        "Integrated vision-based guidance systems for AGVs",
+        "Collaborated with stakeholders to install, commission, and optimize automation solutions",
+        "Provided technical leadership in product development",
+        "Successfully executed international projects across Asia",
+        "Represented SLEMEA as a delegate in Vietnam and Thailand"
+      ]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">Professional Experience</h1>
-      <div className="max-w-4xl mx-auto space-y-8">
+    <div className="min-h-screen bg-[#121212] text-white">
+      <Navigation />
+      <div className="max-w-4xl mx-auto p-8 space-y-8">
+        <h1 className="text-4xl font-bold mb-8">Professional Experience</h1>
         {experiences.map((experience, index) => (
           <div key={index} className="bg-card p-6 rounded-2xl border border-gray-800">
-            <img 
-              src={experience.image} 
-              alt={experience.title}
-              className="w-full h-48 object-cover rounded-lg mb-4"
-            />
             <h2 className="text-2xl font-bold mb-2 text-blue-400">{experience.title}</h2>
             <h3 className="text-xl text-gray-300 mb-2">{experience.company}</h3>
-            <p className="text-gray-400 mb-2">{experience.period}</p>
-            <p className="text-gray-300">{experience.description}</p>
+            <p className="text-gray-400 mb-4">{experience.period}</p>
+            <ul className="space-y-2">
+              {experience.achievements.map((achievement, i) => (
+                Array.isArray(achievement) ? (
+                  <ul key={i} className="list-disc pl-6 space-y-1">
+                    {achievement.map((subItem, j) => (
+                      <li key={`${i}-${j}`} className="text-gray-300">{subItem}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <li key={i} className="text-gray-300">{achievement}</li>
+                )
+              ))}
+            </ul>
           </div>
         ))}
       </div>
