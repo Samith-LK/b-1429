@@ -1,11 +1,4 @@
 import { Link } from "react-router-dom";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import { lazy, Suspense } from 'react';
 
 const LazyImage = lazy(() => import('@/components/LazyImage'));
@@ -17,7 +10,13 @@ const Index = () => {
         {/* Profile Card */}
         <Link to="/about" className="bento-card col-span-2">
           <div className="flex items-center gap-8">
-            <Suspense fallback={<div className="w-48 h-48 bg-gray-700 rounded-full animate-pulse" />}>
+            <Suspense 
+              fallback={
+                <div className="w-48 h-48 bg-gray-700 rounded-full animate-pulse flex items-center justify-center">
+                  <div className="w-8 h-8 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              }
+            >
               <LazyImage 
                 src="/src/images/profilepicNoBack.webp" 
                 alt="Profile"
@@ -38,7 +37,7 @@ const Index = () => {
           </div>
         </Link>
 
-        {/* Experiences Card */}
+        {/* Other cards */}
         <Link to="/experiences" className="bento-card">
           <Suspense fallback={<div className="bento-card-image bg-gray-700 animate-pulse" />}>
             <LazyImage 
