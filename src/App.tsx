@@ -7,11 +7,11 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <AppRoutes />
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   </QueryClientProvider>
 );
 
