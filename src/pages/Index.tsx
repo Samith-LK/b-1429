@@ -6,16 +6,24 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { lazy, Suspense } from 'react';
+
+// Lazy load images
+const LazyImage = lazy(() => import('@/components/LazyImage'));
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white">
       {/* Navigation Bar */}
-      <nav className="border-b border-gray-800 px-6 py-4">
+      <nav className="border-b border-gray-800 px-6 py-4 sticky top-0 z-50 bg-[#121212]">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-8">
             <Link to="/" className="text-white hover:text-blue-400">Home</Link>
             <Link to="/about" className="text-gray-400 hover:text-white">About</Link>
+            <Link to="/experiences" className="text-gray-400 hover:text-white">Experiences</Link>
+            <Link to="/skills" className="text-gray-400 hover:text-white">Skills</Link>
+            <Link to="/academic" className="text-gray-400 hover:text-white">Academic</Link>
+            <Link to="/projects" className="text-gray-400 hover:text-white">Projects</Link>
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
@@ -50,14 +58,16 @@ const Index = () => {
       </nav>
 
       <div className="bento-grid">
-        {/* Profile Card - Now links to About */}
+        {/* Profile Card */}
         <Link to="/about" className="bento-card col-span-2">
           <div className="flex items-center gap-8">
-            <img 
-              src="/src/images/profilepicNoBack.webp" 
-              alt="Profile" 
-              className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
-            />
+            <Suspense fallback={<div className="w-48 h-48 bg-gray-700 rounded-full animate-pulse" />}>
+              <LazyImage 
+                src="/src/images/profilepicNoBack.webp" 
+                alt="Profile"
+                className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
+              />
+            </Suspense>
             <div className="text-left">
               <h2 className="text-sm text-gray-400 mb-2">Welcome</h2>
               <h1 className="text-4xl font-bold mb-4">
@@ -74,11 +84,13 @@ const Index = () => {
 
         {/* Experiences Card */}
         <Link to="/experiences" className="bento-card">
-          <img 
-            src="/src/images/undraw_feeling-proud_tdos.svg" 
-            alt="Experiences" 
-            className="bento-card-image"
-          />
+          <Suspense fallback={<div className="bento-card-image bg-gray-700 animate-pulse" />}>
+            <LazyImage 
+              src="/src/images/undraw_feeling-proud_tdos.svg" 
+              alt="Experiences"
+              className="bento-card-image"
+            />
+          </Suspense>
           <h3 className="text-xl font-bold mb-2">Experiences</h3>
           <p className="text-gray-400">Professional journey and industry expertise</p>
         </Link>
