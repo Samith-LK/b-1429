@@ -18,51 +18,48 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Enable minification and optimization
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log']
+        drop_console: mode === 'production',
+        drop_debugger: mode === 'production'
       }
     },
-    // Split chunks for better caching
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: [
+          'vendor': [
             'react',
             'react-dom',
             'react-router-dom',
-            '@tanstack/react-query',
-            'framer-motion'
+            '@tanstack/react-query'
           ],
-          ui: [
-            'src/components/ui/button',
-            'src/components/ui/toast',
-            'src/components/ui/skeleton',
-            'src/components/ui/use-toast'
+          'ui': [
+            './src/components/ui/button',
+            './src/components/ui/toast',
+            './src/components/ui/skeleton',
+            './src/components/ui/use-toast'
           ]
         },
-        // Optimize chunk size
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash][extname]'
+        chunkFileNames: 'assets/js/[name].[hash].js',
+        entryFileNames: 'assets/js/[name].[hash].js',
+        assetFileNames: ({ name }) => {
+          if (!name) return 'assets/misc/[hash][extname]';
+          const extType = name.split('.').pop();
+          return `assets/${extType}/[name].[hash][extname]`;
+        }
       }
     },
-    // Enable source maps for development
     sourcemap: mode === 'development',
-    // Optimize asset size
     assetsInlineLimit: 4096,
-    // Enable chunk size warnings
     chunkSizeWarningLimit: 1000,
-    // Optimize CSS
     cssCodeSplit: true,
-    // Enable module preload
     modulePreload: {
       polyfill: true
     }
   },
-  // Configure base URL for GitHub Pages
-  base: '/portfolio/' // Replace 'portfolio' with your repository name
+  base: '/portfolio/', // Make sure this matches your repository name
+  optimizeDeps: {
+    include: ['react', 'react-dom', '@tanstack/react-query']
+  }
 }));
