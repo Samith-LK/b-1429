@@ -18,7 +18,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Enable minification and optimization
     minify: 'terser',
     terserOptions: {
       compress: {
@@ -26,65 +25,47 @@ export default defineConfig(({ mode }) => ({
         drop_debugger: mode === 'production'
       }
     },
-    // Split chunks for better caching
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // Vendor chunks
-          if (id.includes('node_modules')) {
-            if (id.includes('react')) {
-              return 'vendor-react';
-            }
-            if (id.includes('@tanstack')) {
-              return 'vendor-tanstack';
-            }
-            if (id.includes('lucide')) {
-              return 'vendor-icons';
-            }
-            return 'vendor';
-          }
-          // UI components chunk
-          if (id.includes('components/ui/')) {
-            return 'ui-components';
-          }
-          // Route-based code splitting
-          if (id.includes('pages/')) {
-            return 'pages';
-          }
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-tanstack': ['@tanstack/react-query'],
+          'vendor-icons': ['lucide-react'],
+          'vendor': [
+            '@radix-ui/react-toast',
+            '@radix-ui/react-tooltip',
+            'class-variance-authority',
+            'clsx',
+            'tailwind-merge'
+          ],
+          'ui': [
+            'components/ui/button',
+            'components/ui/toast',
+            'components/ui/skeleton',
+            'components/ui/use-toast'
+          ]
         },
-        // Optimize chunk naming and caching
-        chunkFileNames: (chunkInfo) => {
-          const hash = chunkInfo.hash.slice(0, 8);
-          return `assets/js/[name].[hash].js`;
-        },
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
-          const ext = assetInfo.name.split('.').pop();
-          return `assets/${ext}/[name].[hash].${ext}`;
+          const extType = assetInfo?.name?.split('.').pop();
+          return `assets/${extType || 'misc'}/[name]-[hash][extname]`;
         }
       }
     },
-    // Enable source maps only in development
     sourcemap: mode === 'development',
-    // Optimize asset size
     assetsInlineLimit: 4096,
-    // Report on chunk sizes
     chunkSizeWarningLimit: 1000,
-    // Optimize CSS
     cssCodeSplit: true,
-    // Enable module preload
     modulePreload: {
       polyfill: true
     },
-    // Improve build performance
     target: 'esnext',
     reportCompressedSize: false
   },
-  // Configure base URL for GitHub Pages
   base: '/portfolio/', // Replace 'portfolio' with your repository name
-  // Optimize dev server
   optimizeDeps: {
     include: ['react', 'react-dom', '@tanstack/react-query']
   },
-  // Enable caching
   cacheDir: '.vite'
 }));
