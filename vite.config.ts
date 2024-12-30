@@ -39,17 +39,18 @@ export default defineConfig(({ mode }) => ({
             'tailwind-merge'
           ],
           'ui': [
-            'components/ui/button',
-            'components/ui/toast',
-            'components/ui/skeleton',
-            'components/ui/use-toast'
+            './src/components/ui/button',
+            './src/components/ui/toast',
+            './src/components/ui/skeleton',
+            './src/components/ui/use-toast'
           ]
         },
-        chunkFileNames: 'assets/js/[name]-[hash].js',
-        entryFileNames: 'assets/js/[name]-[hash].js',
-        assetFileNames: (assetInfo) => {
-          const extType = assetInfo?.name?.split('.').pop();
-          return `assets/${extType || 'misc'}/[name]-[hash][extname]`;
+        chunkFileNames: 'assets/js/[name].[hash].js',
+        entryFileNames: 'assets/js/[name].[hash].js',
+        assetFileNames: ({ name }) => {
+          if (!name) return 'assets/misc/[hash][extname]';
+          const extType = name.split('.').pop();
+          return `assets/${extType}/[name].[hash][extname]`;
         }
       }
     },
