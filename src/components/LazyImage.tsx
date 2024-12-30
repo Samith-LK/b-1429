@@ -14,8 +14,8 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [error, setError] = useState(false);
   const { toast } = useToast();
 
-  // Implement image preloading
   const preloadImage = useCallback(() => {
+    console.log('Attempting to load image:', src);
     const img = new Image();
     
     img.onload = () => {
@@ -36,9 +36,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
       });
     };
 
-    // Add timestamp to prevent caching issues
-    const timestamp = new Date().getTime();
-    img.src = `${src}?t=${timestamp}`;
+    img.src = src;
 
     return () => {
       img.onload = null;
@@ -51,7 +49,6 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
     return cleanup;
   }, [preloadImage]);
 
-  // Implement retry mechanism
   const handleRetry = () => {
     setLoading(true);
     setError(false);
@@ -88,7 +85,6 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
       loading="lazy"
       decoding="async"
       onError={handleRetry}
-      fetchPriority="high"
     />
   );
 };

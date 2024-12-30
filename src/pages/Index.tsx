@@ -4,6 +4,8 @@ import { lazy, Suspense } from 'react';
 const LazyImage = lazy(() => import('@/components/LazyImage'));
 
 const Index = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+  
   return (
     <div className="min-h-screen bg-[#121212] text-white">
       <div className="bento-grid">
@@ -18,7 +20,7 @@ const Index = () => {
               }
             >
               <LazyImage 
-                src="/src/images/profilepicNoBack.webp" 
+                src={`${baseUrl}images/profilepicNoBack.webp`}
                 alt="Profile"
                 className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
               />
@@ -37,11 +39,11 @@ const Index = () => {
           </div>
         </Link>
 
-        {/* Other cards */}
+        {/* Experiences Card */}
         <Link to="/experiences" className="bento-card">
           <Suspense fallback={<div className="bento-card-image bg-gray-700 animate-pulse" />}>
             <LazyImage 
-              src="/src/images/undraw_feeling-proud_tdos.svg" 
+              src={`${baseUrl}images/undraw_feeling-proud_tdos.svg`}
               alt="Experiences"
               className="bento-card-image"
             />
@@ -50,10 +52,10 @@ const Index = () => {
           <p className="text-gray-400">Professional journey and industry expertise</p>
         </Link>
 
-        {/* Skills & Expertise Card */}
+        {/* Skills Card */}
         <Link to="/skills" className="bento-card">
-          <img 
-            src="/src/images/undraw_percentages_wi9e.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_percentages_wi9e.svg`}
             alt="Skills & Expertise" 
             className="bento-card-image"
           />
@@ -63,8 +65,8 @@ const Index = () => {
 
         {/* Academic Card */}
         <Link to="/academic" className="bento-card">
-          <img 
-            src="/src/images/undraw_detailed-analysis_w5a8.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_detailed-analysis_w5a8.svg`}
             alt="Academic" 
             className="bento-card-image"
           />
@@ -74,8 +76,8 @@ const Index = () => {
 
         {/* Projects Card */}
         <Link to="/projects" className="bento-card">
-          <img 
-            src="/src/images/undraw_maker-launch_fwzi.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_maker-launch_fwzi.svg`}
             alt="Projects" 
             className="bento-card-image"
           />
@@ -85,8 +87,8 @@ const Index = () => {
 
         {/* Awards Card */}
         <Link to="/awards" className="bento-card">
-          <img 
-            src="/src/images/undraw_awards_faq6.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_awards_faq6.svg`}
             alt="Awards" 
             className="bento-card-image"
           />
@@ -96,8 +98,8 @@ const Index = () => {
 
         {/* Sports Card */}
         <Link to="/sports" className="bento-card">
-          <img 
-            src="/src/images/undraw_greek-freak_p532.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_greek-freak_p532.svg`}
             alt="Sports" 
             className="bento-card-image"
           />
@@ -107,8 +109,8 @@ const Index = () => {
 
         {/* Volunteering Card */}
         <Link to="/volunteering" className="bento-card">
-          <img 
-            src="/src/images/undraw_adventure_9my9.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_adventure_9my9.svg`}
             alt="Volunteering" 
             className="bento-card-image"
           />
@@ -118,8 +120,8 @@ const Index = () => {
 
         {/* Competitions Card */}
         <Link to="/competitions" className="bento-card">
-          <img 
-            src="/src/images/undraw_firmware_3fxd.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_firmware_3fxd.svg`}
             alt="Competitions" 
             className="bento-card-image"
           />
@@ -129,8 +131,8 @@ const Index = () => {
 
         {/* Blog Card */}
         <Link to="/blog" className="bento-card">
-          <img 
-            src="/src/images/undraw_social-update_tf0a.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_social-update_tf0a.svg`}
             alt="Blog" 
             className="bento-card-image"
           />
@@ -140,8 +142,8 @@ const Index = () => {
 
         {/* Contact Card */}
         <Link to="/contact" className="bento-card">
-          <img 
-            src="/src/images/undraw_phone-call_lpny.svg" 
+          <LazyImage 
+            src={`${baseUrl}images/undraw_phone-call_lpny.svg`}
             alt="Contact" 
             className="bento-card-image"
           />
