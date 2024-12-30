@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { Skeleton } from "@/components/ui/skeleton";
+import { useToast } from "@/components/ui/use-toast";
 
 interface LazyImageProps {
   src: string;
@@ -10,10 +12,11 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [imageSrc, setImageSrc] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const { toast } = useToast();
 
-  useEffect(() => {
+  // Implement image preloading
+  const preloadImage = useCallback(() => {
     const img = new Image();
-    img.src = src;
     
     img.onload = () => {
       console.log(`Image loaded successfully: ${src}`);
@@ -26,27 +29,53 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
       console.error(`Failed to load image: ${src}`);
       setError(true);
       setLoading(false);
+      toast({
+        variant: "destructive",
+        title: "Image Load Error",
+        description: "Failed to load image. Please try refreshing the page.",
+      });
     };
 
-    // Cleanup
+    // Add timestamp to prevent caching issues
+    const timestamp = new Date().getTime();
+    img.src = `${src}?t=${timestamp}`;
+
     return () => {
       img.onload = null;
       img.onerror = null;
     };
-  }, [src]);
+  }, [src, toast]);
+
+  useEffect(() => {
+    const cleanup = preloadImage();
+    return cleanup;
+  }, [preloadImage]);
+
+  // Implement retry mechanism
+  const handleRetry = () => {
+    setLoading(true);
+    setError(false);
+    preloadImage();
+  };
 
   if (error) {
     return (
-      <div className={`${className} bg-gray-800 flex items-center justify-center`}>
-        <span className="text-red-400 text-sm">Failed to load image</span>
+      <div className={`${className} bg-gray-800 flex flex-col items-center justify-center p-4 rounded-lg`}>
+        <span className="text-red-400 text-sm mb-2">Failed to load image</span>
+        <button 
+          onClick={handleRetry}
+          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+        >
+          Retry
+        </button>
       </div>
     );
   }
 
   if (loading) {
     return (
-      <div className={`${className} bg-gray-700 animate-pulse flex items-center justify-center`}>
-        <div className="w-8 h-8 border-4 border-blue-400 border-t-transparent rounded-full animate-spin"></div>
+      <div className={`${className} flex items-center justify-center`}>
+        <Skeleton className="w-full h-full min-h-[200px]" />
       </div>
     );
   }
@@ -57,7 +86,9 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
       alt={alt}
       className={className}
       loading="lazy"
-      onError={() => setError(true)}
+      decoding="async"
+      onError={handleRetry}
+      fetchPriority="high"
     />
   );
 };
