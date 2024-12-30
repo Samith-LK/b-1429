@@ -64,7 +64,7 @@ export default defineConfig(({ mode }) => ({
     target: 'esnext',
     reportCompressedSize: false
   },
-  base: '/portfolio/', // Replace 'portfolio' with your repository name
+  base: '/b-1429/', // Replace 'portfolio' with your repository name
   optimizeDeps: {
     include: ['react', 'react-dom', '@tanstack/react-query']
   },
