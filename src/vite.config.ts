@@ -39,7 +39,10 @@ export default defineConfig(({ mode }) => ({
             'framer-motion'
           ],
           ui: [
-            /components\/ui\/.*/,
+            'src/components/ui/button',
+            'src/components/ui/toast',
+            'src/components/ui/skeleton',
+            'src/components/ui/use-toast'
           ]
         },
         // Optimize chunk size
