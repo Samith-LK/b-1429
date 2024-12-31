@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react';
 const LazyImage = lazy(() => import('@/components/LazyImage'));
 
 const Index = () => {
-  const baseUrl = import.meta.env.BASE_URL;
+  const baseUrl = import.meta.env.BASE_URL || '/';
   
   return (
     <div className="min-h-screen bg-[#121212] text-white">

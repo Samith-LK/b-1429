@@ -27,13 +27,21 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
 
     img.onerror = () => {
       console.error(`Failed to load image: ${src}`);
-      setError(true);
-      setLoading(false);
-      toast({
-        variant: "destructive",
-        title: "Image Load Error",
-        description: "Failed to load image. Please try refreshing the page.",
-      });
+      // Try to load the image with the correct base URL if it's a relative path
+      if (src.startsWith('/')) {
+        const baseUrl = import.meta.env.BASE_URL || '/';
+        const newSrc = `${baseUrl.replace(/\/$/, '')}${src}`;
+        console.log('Retrying with corrected path:', newSrc);
+        img.src = newSrc;
+      } else {
+        setError(true);
+        setLoading(false);
+        toast({
+          variant: "destructive",
+          title: "Image Load Error",
+          description: "Failed to load image. Please try refreshing the page.",
+        });
+      }
     };
 
     img.src = src;
@@ -45,6 +53,8 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   }, [src, toast]);
 
   useEffect(() => {
+    setLoading(true);
+    setError(false);
     const cleanup = preloadImage();
     return cleanup;
   }, [preloadImage]);
