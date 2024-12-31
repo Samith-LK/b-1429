@@ -13,6 +13,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { toast } = useToast();
+  const [retryCount, setRetryCount] = useState(0);
 
   const preloadImage = useCallback(() => {
     console.log('Attempting to load image:', src);
@@ -27,34 +28,47 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
 
     img.onerror = () => {
       console.error(`Failed to load image: ${src}`);
-      // Try to load the image with the correct base URL if it's a relative path
+      
+      // Handle relative paths
       if (src.startsWith('/')) {
         const baseUrl = import.meta.env.BASE_URL || '/';
-        const newSrc = `${baseUrl.replace(/\/$/, '')}${src}`;
+        // Remove trailing slash from baseUrl and ensure no double slashes
+        const cleanBaseUrl = baseUrl.replace(/\/+$/, '');
+        const cleanSrc = src.replace(/^\/+/, '');
+        const newSrc = `${cleanBaseUrl}/${cleanSrc}`;
+        
         console.log('Retrying with corrected path:', newSrc);
-        img.src = newSrc;
-      } else {
-        setError(true);
-        setLoading(false);
-        toast({
-          variant: "destructive",
-          title: "Image Load Error",
-          description: "Failed to load image. Please try refreshing the page.",
-        });
+        
+        if (retryCount < 2) {
+          setRetryCount(prev => prev + 1);
+          img.src = newSrc;
+          return;
+        }
       }
+      
+      setError(true);
+      setLoading(false);
+      toast({
+        variant: "destructive",
+        title: "Image Load Error",
+        description: "Failed to load image. Please try refreshing the page.",
+      });
     };
 
-    img.src = src;
+    const finalSrc = src.startsWith('http') ? src : `${import.meta.env.BASE_URL || '/'}${src.replace(/^\//, '')}`;
+    console.log('Loading image with path:', finalSrc);
+    img.src = finalSrc;
 
     return () => {
       img.onload = null;
       img.onerror = null;
     };
-  }, [src, toast]);
+  }, [src, toast, retryCount]);
 
   useEffect(() => {
     setLoading(true);
     setError(false);
+    setRetryCount(0);
     const cleanup = preloadImage();
     return cleanup;
   }, [preloadImage]);
@@ -62,6 +76,7 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const handleRetry = () => {
     setLoading(true);
     setError(false);
+    setRetryCount(0);
     preloadImage();
   };
 
