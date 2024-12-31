@@ -1,8 +1,20 @@
 import { Link } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
 
 const Index = () => {
   const baseUrl = import.meta.env.BASE_URL;
+  const { toast } = useToast();
   console.log('Base URL for images:', baseUrl);
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, imageName: string) => {
+    console.error(`Failed to load image: ${imageName}`);
+    e.currentTarget.src = `${baseUrl}placeholder.svg`;
+    toast({
+      title: "Image loading error",
+      description: `Failed to load ${imageName}. Using placeholder instead.`,
+      variant: "destructive",
+    });
+  };
 
   return (
     <div className="min-h-screen bg-[#121212] text-white">
@@ -11,10 +23,10 @@ const Index = () => {
         <Link to="/about" className="bento-card col-span-2">
           <div className="flex items-center gap-8">
             <img 
-              src={`${baseUrl}images/profilepicNoBack.webp`}
+              src="/portfolio/images/profilepicNoBack.webp"
               alt="Profile"
               className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
-              loading="lazy"
+              onError={(e) => handleImageError(e, 'profile')}
             />
             <div className="text-left">
               <h2 className="text-sm text-gray-400 mb-2">Welcome</h2>
@@ -33,10 +45,10 @@ const Index = () => {
         {/* Experiences Card */}
         <Link to="/experiences" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_feeling-proud_tdos.svg`}
+            src="/portfolio/images/undraw_feeling-proud_tdos.svg"
             alt="Experiences"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'experiences')}
           />
           <h3 className="text-xl font-bold mb-2">Experiences</h3>
           <p className="text-gray-400">Professional journey and industry expertise</p>
@@ -45,10 +57,10 @@ const Index = () => {
         {/* Skills Card */}
         <Link to="/skills" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_percentages_wi9e.svg`}
+            src="/portfolio/images/undraw_percentages_wi9e.svg"
             alt="Skills & Expertise"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'skills')}
           />
           <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
           <p className="text-gray-400">Technical skills and professional competencies</p>
@@ -57,10 +69,10 @@ const Index = () => {
         {/* Academic Card */}
         <Link to="/academic" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_detailed-analysis_w5a8.svg`}
+            src="/portfolio/images/undraw_detailed-analysis_w5a8.svg"
             alt="Academic"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'academic')}
           />
           <h3 className="text-xl font-bold mb-2">Academic</h3>
           <p className="text-gray-400">Explore academic achievements and scholarly work</p>
@@ -69,10 +81,10 @@ const Index = () => {
         {/* Projects Card */}
         <Link to="/projects" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_maker-launch_fwzi.svg`}
+            src="/portfolio/images/undraw_maker-launch_fwzi.svg"
             alt="Projects"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'projects')}
           />
           <h3 className="text-xl font-bold mb-2">Projects</h3>
           <p className="text-gray-400">Discover innovative technical implementations and research projects</p>
@@ -81,10 +93,10 @@ const Index = () => {
         {/* Awards Card */}
         <Link to="/awards" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_awards_faq6.svg`}
+            src="/portfolio/images/undraw_awards_faq6.svg"
             alt="Awards"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'awards')}
           />
           <h3 className="text-xl font-bold mb-2">Awards</h3>
           <p className="text-gray-400">Recognition and honors for research excellence</p>
@@ -93,10 +105,10 @@ const Index = () => {
         {/* Sports Card */}
         <Link to="/sports" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_greek-freak_p532.svg`}
+            src="/portfolio/images/undraw_greek-freak_p532.svg"
             alt="Sports"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'sports')}
           />
           <h3 className="text-xl font-bold mb-2">Sports</h3>
           <p className="text-gray-400">Athletic achievements and sports activities</p>
@@ -105,10 +117,10 @@ const Index = () => {
         {/* Volunteering Card */}
         <Link to="/volunteering" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_adventure_9my9.svg`}
+            src="/portfolio/images/undraw_adventure_9my9.svg"
             alt="Volunteering"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'volunteering')}
           />
           <h3 className="text-xl font-bold mb-2">Volunteering</h3>
           <p className="text-gray-400">Community service and volunteer activities</p>
@@ -117,10 +129,10 @@ const Index = () => {
         {/* Competitions Card */}
         <Link to="/competitions" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_firmware_3fxd.svg`}
+            src="/portfolio/images/undraw_firmware_3fxd.svg"
             alt="Competitions"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'competitions')}
           />
           <h3 className="text-xl font-bold mb-2">Competitions</h3>
           <p className="text-gray-400">Achievements in various competitions and challenges</p>
@@ -129,10 +141,10 @@ const Index = () => {
         {/* Blog Card */}
         <Link to="/blog" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_social-update_tf0a.svg`}
+            src="/portfolio/images/undraw_social-update_tf0a.svg"
             alt="Blog"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'blog')}
           />
           <h3 className="text-xl font-bold mb-2">Blog</h3>
           <p className="text-gray-400">Insights and thoughts on AI, ML, and research</p>
@@ -141,10 +153,10 @@ const Index = () => {
         {/* Contact Card */}
         <Link to="/contact" className="bento-card">
           <img 
-            src={`${baseUrl}images/undraw_phone-call_lpny.svg`}
+            src="/portfolio/images/undraw_phone-call_lpny.svg"
             alt="Contact"
             className="bento-card-image"
-            loading="lazy"
+            onError={(e) => handleImageError(e, 'contact')}
           />
           <h3 className="text-xl font-bold mb-2">Let's work together</h3>
           <p className="text-gray-400">Reach out for collaborations and opportunities</p>
