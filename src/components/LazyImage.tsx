@@ -15,13 +15,28 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
   const { toast } = useToast();
   const [retryCount, setRetryCount] = useState(0);
 
+  const getImagePath = useCallback((src: string) => {
+    // If it's already an absolute URL, return as is
+    if (src.startsWith('http')) return src;
+
+    // Get the base URL from Vite
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    
+    // Remove any leading slashes from src and trailing slashes from baseUrl
+    const cleanSrc = src.replace(/^\/+/, '');
+    const cleanBaseUrl = baseUrl.replace(/\/+$/, '');
+
+    // Combine them ensuring no double slashes
+    return `${cleanBaseUrl}/${cleanSrc}`;
+  }, []);
+
   const preloadImage = useCallback(() => {
     console.log('Attempting to load image:', src);
     const img = new Image();
     
     img.onload = () => {
       console.log(`Image loaded successfully: ${src}`);
-      setImageSrc(src);
+      setImageSrc(getImagePath(src));
       setLoading(false);
       setError(false);
     };
@@ -29,41 +44,37 @@ const LazyImage = ({ src, alt, className }: LazyImageProps) => {
     img.onerror = () => {
       console.error(`Failed to load image: ${src}`);
       
-      // Handle relative paths
-      if (src.startsWith('/')) {
-        const baseUrl = import.meta.env.BASE_URL || '/';
-        // Remove trailing slash from baseUrl and ensure no double slashes
-        const cleanBaseUrl = baseUrl.replace(/\/+$/, '');
-        const cleanSrc = src.replace(/^\/+/, '');
-        const newSrc = `${cleanBaseUrl}/${cleanSrc}`;
+      if (retryCount < 2) {
+        console.log('Retrying with different path format...');
+        setRetryCount(prev => prev + 1);
         
-        console.log('Retrying with corrected path:', newSrc);
+        // Try alternative path formats
+        const alternativePath = src.startsWith('/') 
+          ? src.slice(1) 
+          : `/${src}`;
         
-        if (retryCount < 2) {
-          setRetryCount(prev => prev + 1);
-          img.src = newSrc;
-          return;
-        }
+        console.log('Attempting with alternative path:', alternativePath);
+        img.src = getImagePath(alternativePath);
+      } else {
+        setError(true);
+        setLoading(false);
+        toast({
+          variant: "destructive",
+          title: "Image Load Error",
+          description: "Failed to load image. Please try refreshing the page.",
+        });
       }
-      
-      setError(true);
-      setLoading(false);
-      toast({
-        variant: "destructive",
-        title: "Image Load Error",
-        description: "Failed to load image. Please try refreshing the page.",
-      });
     };
 
-    const finalSrc = src.startsWith('http') ? src : `${import.meta.env.BASE_URL || '/'}${src.replace(/^\//, '')}`;
-    console.log('Loading image with path:', finalSrc);
-    img.src = finalSrc;
+    const finalPath = getImagePath(src);
+    console.log('Loading image with path:', finalPath);
+    img.src = finalPath;
 
     return () => {
       img.onload = null;
       img.onerror = null;
     };
-  }, [src, toast, retryCount]);
+  }, [src, toast, retryCount, getImagePath]);
 
   useEffect(() => {
     setLoading(true);
