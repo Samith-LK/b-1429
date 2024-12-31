@@ -1,7 +1,3 @@
-import { lazy, Suspense } from 'react';
-
-const LazyImage = lazy(() => import('@/components/LazyImage'));
-
 const Experiences = () => {
   const experiences = [
     {
