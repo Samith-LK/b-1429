@@ -6,7 +6,7 @@ const Index = () => {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, imageName: string) => {
     console.error(`Failed to load image: ${imageName}`);
-    e.currentTarget.src = "/portfolio/placeholder.svg";
+    e.currentTarget.src = "/images/placeholder.svg";
     toast({
       title: "Image loading error",
       description: `Failed to load ${imageName}. Using placeholder instead.`,
@@ -21,7 +21,7 @@ const Index = () => {
         <Link to="/about" className="col-span-1 md:col-span-2 bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <img 
-              src="/portfolio/images/profilepicNoBack.webp"
+              src="/images/profilepicNoBack.webp"
               alt="Profile"
               className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-400"
               onError={(e) => handleImageError(e, 'profile')}
@@ -44,7 +44,7 @@ const Index = () => {
         {/* Other Cards */}
         <Link to="/experiences" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_feeling-proud_tdos.svg"
+            src="/images/undraw_feeling-proud_tdos.svg"
             alt="Experiences"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'experiences')}
@@ -56,7 +56,7 @@ const Index = () => {
 
         <Link to="/skills" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_percentages_wi9e.svg"
+            src="/images/undraw_percentages_wi9e.svg"
             alt="Skills & Expertise"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'skills')}
@@ -68,7 +68,7 @@ const Index = () => {
 
         <Link to="/academic" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_detailed-analysis_w5a8.svg"
+            src="/images/undraw_detailed-analysis_w5a8.svg"
             alt="Academic"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'academic')}
@@ -80,7 +80,7 @@ const Index = () => {
 
         <Link to="/projects" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_maker-launch_fwzi.svg"
+            src="/images/undraw_maker-launch_fwzi.svg"
             alt="Projects"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'projects')}
@@ -92,7 +92,7 @@ const Index = () => {
 
         <Link to="/awards" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_awards_faq6.svg"
+            src="/images/undraw_awards_faq6.svg"
             alt="Awards"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'awards')}
@@ -104,7 +104,7 @@ const Index = () => {
 
         <Link to="/sports" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_greek-freak_p532.svg"
+            src="/images/undraw_greek-freak_p532.svg"
             alt="Sports"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'sports')}
@@ -116,7 +116,7 @@ const Index = () => {
 
         <Link to="/volunteering" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_adventure_9my9.svg"
+            src="/images/undraw_adventure_9my9.svg"
             alt="Volunteering"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'volunteering')}
@@ -128,7 +128,7 @@ const Index = () => {
 
         <Link to="/competitions" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_firmware_3fxd.svg"
+            src="/images/undraw_firmware_3fxd.svg"
             alt="Competitions"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'competitions')}
@@ -140,7 +140,7 @@ const Index = () => {
 
         <Link to="/blog" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_social-update_tf0a.svg"
+            src="/images/undraw_social-update_tf0a.svg"
             alt="Blog"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'blog')}
@@ -152,7 +152,7 @@ const Index = () => {
 
         <Link to="/contact" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <img 
-            src="/portfolio/images/undraw_phone-call_lpny.svg"
+            src="/images/undraw_phone-call_lpny.svg"
             alt="Contact"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'contact')}
