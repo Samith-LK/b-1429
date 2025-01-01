@@ -5,7 +5,7 @@ const Index = () => {
   const { toast } = useToast();
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, imageName: string) => {
-    console.error(`Failed to load image: ${imageName}`);
+    console.log(`Attempting to load image: ${imageName}`);
     e.currentTarget.src = "/images/placeholder.svg";
     toast({
       title: "Image loading error",
@@ -25,7 +25,6 @@ const Index = () => {
               alt="Profile"
               className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover border-4 border-blue-400"
               onError={(e) => handleImageError(e, 'profile')}
-              loading="eager"
             />
             <div className="text-center md:text-left">
               <h2 className="text-sm text-gray-400 mb-2">Welcome</h2>
@@ -48,7 +47,6 @@ const Index = () => {
             alt="Experiences"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'experiences')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Experiences</h3>
           <p className="text-gray-400">Professional journey and industry expertise</p>
@@ -60,7 +58,6 @@ const Index = () => {
             alt="Skills & Expertise"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'skills')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
           <p className="text-gray-400">Technical skills and professional competencies</p>
@@ -72,7 +69,6 @@ const Index = () => {
             alt="Academic"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'academic')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Academic</h3>
           <p className="text-gray-400">Explore academic achievements and scholarly work</p>
@@ -84,7 +80,6 @@ const Index = () => {
             alt="Projects"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'projects')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Projects</h3>
           <p className="text-gray-400">Discover innovative technical implementations and research projects</p>
@@ -96,7 +91,6 @@ const Index = () => {
             alt="Awards"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'awards')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Awards</h3>
           <p className="text-gray-400">Recognition and honors for research excellence</p>
@@ -108,7 +102,6 @@ const Index = () => {
             alt="Sports"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'sports')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Sports</h3>
           <p className="text-gray-400">Athletic achievements and sports activities</p>
@@ -120,7 +113,6 @@ const Index = () => {
             alt="Volunteering"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'volunteering')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Volunteering</h3>
           <p className="text-gray-400">Community service and volunteer activities</p>
@@ -132,7 +124,6 @@ const Index = () => {
             alt="Competitions"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'competitions')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Competitions</h3>
           <p className="text-gray-400">Achievements in various competitions and challenges</p>
@@ -144,7 +135,6 @@ const Index = () => {
             alt="Blog"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'blog')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Blog</h3>
           <p className="text-gray-400">Insights and thoughts on AI, ML, and research</p>
@@ -156,7 +146,6 @@ const Index = () => {
             alt="Contact"
             className="h-40 w-full object-contain mb-4"
             onError={(e) => handleImageError(e, 'contact')}
-            loading="lazy"
           />
           <h3 className="text-xl font-bold mb-2">Let's work together</h3>
           <p className="text-gray-400">Reach out for collaborations and opportunities</p>

@@ -8,7 +8,7 @@ interface PlaceholderPageProps {
 
 const PlaceholderPage = ({ title, content, image }: PlaceholderPageProps) => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error('Failed to load image:', image);
+    console.log(`Failed to load image: ${image}`);
     e.currentTarget.src = "/images/placeholder.svg";
   };
 
