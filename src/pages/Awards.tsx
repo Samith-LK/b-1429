@@ -42,12 +42,12 @@ const Awards = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-8 text-orange-500">ACHIEVEMENTS</h1>
+      <h1 className="text-3xl font-bold mb-8 text-blue-400">ACHIEVEMENTS</h1>
       <div className="grid gap-6">
         {awards.map((award, index) => (
           <Card key={index} className="bg-card hover:bg-card-hover transition-colors">
             <CardHeader>
-              <CardTitle className="text-xl font-semibold">{award.title}</CardTitle>
+              <CardTitle className="text-xl font-semibold text-blue-400">{award.title}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-gray-400">{award.description}</p>
