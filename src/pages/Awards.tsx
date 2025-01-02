@@ -45,12 +45,12 @@ const Awards = () => {
       <h1 className="text-3xl font-bold mb-8 text-blue-400">ACHIEVEMENTS</h1>
       <div className="grid gap-6">
         {awards.map((award, index) => (
-          <Card key={index} className="bg-card hover:bg-card-hover transition-colors">
+          <Card key={index} className="bg-card hover:bg-card-hover transition-colors border border-gray-800">
             <CardHeader>
               <CardTitle className="text-xl font-semibold text-blue-400">{award.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-400">{award.description}</p>
+              <p className="text-gray-300">{award.description}</p>
             </CardContent>
           </Card>
         ))}

@@ -25,8 +25,8 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
-          DEFAULT: "#1a1a1a",
-          hover: "#242424",
+          DEFAULT: "#1A1F2C",  // Dark blue, very close to black
+          hover: "#222940",    // Slightly lighter dark blue for hover
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
