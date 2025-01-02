@@ -1,18 +1,9 @@
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  GraduationCap, 
-  Briefcase, 
-  Code2, 
-  Trophy, 
-  BookOpen, 
-  Heart, 
-  Medal, 
-  Contact, 
-  Brain,
-  Newspaper,
-  Dumbbell
-} from "lucide-react";
+import { Brain } from "lucide-react";
+import detailedAnalysis from "../images/undraw_detailed-analysis_w5a8.svg";
+import feelingProud from "../images/undraw_feeling-proud_tdos.svg";
+import makerLaunch from "../images/undraw_maker-launch_fwzi.svg";
 
 const Index = () => {
   const { toast } = useToast();
@@ -43,7 +34,7 @@ const Index = () => {
         {/* Other Cards */}
         <Link to="/experiences" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Briefcase className="w-24 h-24 text-blue-400" />
+            <img src={detailedAnalysis} alt="Experiences" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Experiences</h3>
           <p className="text-gray-400">Professional journey and industry expertise</p>
@@ -51,7 +42,7 @@ const Index = () => {
 
         <Link to="/skills" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Code2 className="w-24 h-24 text-blue-400" />
+            <img src={feelingProud} alt="Skills" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
           <p className="text-gray-400">Technical skills and professional competencies</p>
@@ -59,7 +50,7 @@ const Index = () => {
 
         <Link to="/academic" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <GraduationCap className="w-24 h-24 text-blue-400" />
+            <img src={makerLaunch} alt="Academic" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Academic</h3>
           <p className="text-gray-400">Explore academic achievements and scholarly work</p>
@@ -67,7 +58,7 @@ const Index = () => {
 
         <Link to="/projects" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Code2 className="w-24 h-24 text-blue-400" />
+            <img src={detailedAnalysis} alt="Projects" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Projects</h3>
           <p className="text-gray-400">Discover innovative technical implementations and research projects</p>
@@ -75,7 +66,7 @@ const Index = () => {
 
         <Link to="/awards" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Trophy className="w-24 h-24 text-blue-400" />
+            <img src={feelingProud} alt="Awards" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Awards</h3>
           <p className="text-gray-400">Recognition and honors for research excellence</p>
@@ -83,7 +74,7 @@ const Index = () => {
 
         <Link to="/sports" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Dumbbell className="w-24 h-24 text-blue-400" />
+            <img src={makerLaunch} alt="Sports" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Sports</h3>
           <p className="text-gray-400">Athletic achievements and sports activities</p>
@@ -91,7 +82,7 @@ const Index = () => {
 
         <Link to="/volunteering" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Heart className="w-24 h-24 text-blue-400" />
+            <img src={detailedAnalysis} alt="Volunteering" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Volunteering</h3>
           <p className="text-gray-400">Community service and volunteer activities</p>
@@ -99,7 +90,7 @@ const Index = () => {
 
         <Link to="/competitions" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Medal className="w-24 h-24 text-blue-400" />
+            <img src={feelingProud} alt="Competitions" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Competitions</h3>
           <p className="text-gray-400">Achievements in various competitions and challenges</p>
@@ -107,7 +98,7 @@ const Index = () => {
 
         <Link to="/blog" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Newspaper className="w-24 h-24 text-blue-400" />
+            <img src={makerLaunch} alt="Blog" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Blog</h3>
           <p className="text-gray-400">Insights and thoughts on AI, ML, and research</p>
@@ -115,7 +106,7 @@ const Index = () => {
 
         <Link to="/contact" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="h-40 w-full flex items-center justify-center mb-4">
-            <Contact className="w-24 h-24 text-blue-400" />
+            <img src={detailedAnalysis} alt="Contact" className="h-32 w-32 object-contain" />
           </div>
           <h3 className="text-xl font-bold mb-2">Let's work together</h3>
           <p className="text-gray-400">Reach out for collaborations and opportunities</p>
