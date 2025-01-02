@@ -8,8 +8,8 @@ interface PlaceholderPageProps {
 
 const PlaceholderPage = ({ title, content, image }: PlaceholderPageProps) => {
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error('Failed to load image:', image);
-    e.currentTarget.src = "/portfolio/placeholder.svg";
+    console.log(`Failed to load image: ${image}`);
+    e.currentTarget.src = "/images/placeholder.svg";
   };
 
   return (
@@ -19,7 +19,7 @@ const PlaceholderPage = ({ title, content, image }: PlaceholderPageProps) => {
         <div className="mb-8">
           <div className="relative">
             <img 
-              src={`/portfolio/${image}`}
+              src={`/images/${image}`}
               alt={title}
               className="w-full h-64 object-cover rounded-lg mb-6"
               onError={handleImageError}

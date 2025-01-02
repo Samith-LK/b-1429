@@ -9,7 +9,7 @@ import {
 
 const Navigation = () => {
   return (
-    <nav className="border-b border-gray-800 px-6 py-4 sticky top-0 z-50 bg-[#121212]">
+    <nav className="border-b border-gray-800 px-6 py-4 bg-[#121212]">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center space-x-8">
           <Link to="/" className="text-white hover:text-blue-400">Home</Link>

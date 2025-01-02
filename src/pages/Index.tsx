@@ -1,39 +1,39 @@
 import { Link } from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+import { Brain } from "lucide-react";
+import profilePic from "../images/profilepicNoBack.webp";
+import detailedAnalysis from "../images/undraw_detailed-analysis_w5a8.svg";
+import feelingProud from "../images/undraw_feeling-proud_tdos.svg";
+import makerLaunch from "../images/undraw_maker-launch_fwzi.svg";
 
 const Index = () => {
-  const baseUrl = import.meta.env.BASE_URL;
   const { toast } = useToast();
-  console.log('Base URL for images:', baseUrl);
-
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, imageName: string) => {
-    console.error(`Failed to load image: ${imageName}`);
-    e.currentTarget.src = `${baseUrl}placeholder.svg`;
-    toast({
-      title: "Image loading error",
-      description: `Failed to load ${imageName}. Using placeholder instead.`,
-      variant: "destructive",
-    });
-  };
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white">
-      <div className="bento-grid">
+    <div className="min-h-screen bg-[#121212] text-white p-4 md:p-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Profile Card */}
-        <Link to="/about" className="bento-card col-span-2">
-          <div className="flex items-center gap-8">
-            <img 
-              src="/portfolio/images/profilepicNoBack.webp"
-              alt="Profile"
-              className="w-48 h-48 rounded-full object-cover border-4 border-blue-400"
-              onError={(e) => handleImageError(e, 'profile')}
-            />
-            <div className="text-left">
-              <h2 className="text-sm text-gray-400 mb-2">Welcome</h2>
-              <h1 className="text-4xl font-bold mb-4">
-                Hi, I'm <span className="text-blue-400">Samith Chathuranga</span>
-              </h1>
-              <p className="text-gray-300 text-lg">
+        <Link to="/about" className="col-span-1 md:col-span-2 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative">
+              <div className="w-36 h-36 md:w-52 md:h-52 rounded-full bg-blue-500 p-1">
+                <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 p-2">
+                  <img 
+                    src={profilePic} 
+                    alt="Profile" 
+                    className="w-full h-full rounded-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="text-center md:text-left space-y-4">
+              <div className="space-y-2">
+                <h2 className="text-sm text-blue-400 uppercase tracking-wider">Welcome</h2>
+                <h1 className="text-3xl md:text-4xl font-bold text-blue-400">
+                  Hi, I'm <span className="font-extrabold">Samith Chathuranga</span>
+                </h1>
+              </div>
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
                 A passionate researcher and innovator in artificial intelligence and machine learning, 
                 with a focus on developing solutions that bridge the gap between theoretical advancement 
                 and practical applications.
@@ -42,122 +42,82 @@ const Index = () => {
           </div>
         </Link>
 
-        {/* Experiences Card */}
-        <Link to="/experiences" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_feeling-proud_tdos.svg"
-            alt="Experiences"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'experiences')}
-          />
+        <Link to="/experiences" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={detailedAnalysis} alt="Experiences" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Experiences</h3>
           <p className="text-gray-400">Professional journey and industry expertise</p>
         </Link>
 
-        {/* Skills Card */}
-        <Link to="/skills" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_percentages_wi9e.svg"
-            alt="Skills & Expertise"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'skills')}
-          />
+        <Link to="/skills" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={feelingProud} alt="Skills" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
           <p className="text-gray-400">Technical skills and professional competencies</p>
         </Link>
 
-        {/* Academic Card */}
-        <Link to="/academic" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_detailed-analysis_w5a8.svg"
-            alt="Academic"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'academic')}
-          />
+        <Link to="/academic" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={makerLaunch} alt="Academic" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Academic</h3>
           <p className="text-gray-400">Explore academic achievements and scholarly work</p>
         </Link>
 
-        {/* Projects Card */}
-        <Link to="/projects" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_maker-launch_fwzi.svg"
-            alt="Projects"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'projects')}
-          />
+        <Link to="/projects" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={detailedAnalysis} alt="Projects" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Projects</h3>
           <p className="text-gray-400">Discover innovative technical implementations and research projects</p>
         </Link>
 
-        {/* Awards Card */}
-        <Link to="/awards" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_awards_faq6.svg"
-            alt="Awards"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'awards')}
-          />
+        <Link to="/awards" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={feelingProud} alt="Awards" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Awards</h3>
           <p className="text-gray-400">Recognition and honors for research excellence</p>
         </Link>
 
-        {/* Sports Card */}
-        <Link to="/sports" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_greek-freak_p532.svg"
-            alt="Sports"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'sports')}
-          />
+        <Link to="/sports" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={makerLaunch} alt="Sports" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Sports</h3>
           <p className="text-gray-400">Athletic achievements and sports activities</p>
         </Link>
 
-        {/* Volunteering Card */}
-        <Link to="/volunteering" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_adventure_9my9.svg"
-            alt="Volunteering"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'volunteering')}
-          />
+        <Link to="/volunteering" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={detailedAnalysis} alt="Volunteering" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Volunteering</h3>
           <p className="text-gray-400">Community service and volunteer activities</p>
         </Link>
 
-        {/* Competitions Card */}
-        <Link to="/competitions" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_firmware_3fxd.svg"
-            alt="Competitions"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'competitions')}
-          />
+        <Link to="/competitions" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={feelingProud} alt="Competitions" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Competitions</h3>
           <p className="text-gray-400">Achievements in various competitions and challenges</p>
         </Link>
 
-        {/* Blog Card */}
-        <Link to="/blog" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_social-update_tf0a.svg"
-            alt="Blog"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'blog')}
-          />
+        <Link to="/blog" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={makerLaunch} alt="Blog" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Blog</h3>
           <p className="text-gray-400">Insights and thoughts on AI, ML, and research</p>
         </Link>
 
-        {/* Contact Card */}
-        <Link to="/contact" className="bento-card">
-          <img 
-            src="/portfolio/images/undraw_phone-call_lpny.svg"
-            alt="Contact"
-            className="bento-card-image"
-            onError={(e) => handleImageError(e, 'contact')}
-          />
+        <Link to="/contact" className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+          <div className="h-40 w-full flex items-center justify-center mb-4">
+            <img src={detailedAnalysis} alt="Contact" className="h-32 w-32 object-contain" />
+          </div>
           <h3 className="text-xl font-bold mb-2">Let's work together</h3>
           <p className="text-gray-400">Reach out for collaborations and opportunities</p>
         </Link>
