@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 import { Brain } from "lucide-react";
+import profilePic from "../images/profilepicNoBack.webp";
 import detailedAnalysis from "../images/undraw_detailed-analysis_w5a8.svg";
 import feelingProud from "../images/undraw_feeling-proud_tdos.svg";
 import makerLaunch from "../images/undraw_maker-launch_fwzi.svg";
@@ -14,8 +15,8 @@ const Index = () => {
         {/* Profile Card */}
         <Link to="/about" className="col-span-1 md:col-span-2 bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-blue-400 flex items-center justify-center">
-              <Brain className="w-24 h-24 md:w-32 md:h-32 text-blue-400" />
+            <div className="w-32 h-32 md:w-48 md:h-48 rounded-full border-4 border-blue-400 flex items-center justify-center overflow-hidden">
+              <img src={profilePic} alt="Profile" className="w-full h-full object-cover" />
             </div>
             <div className="text-center md:text-left">
               <h2 className="text-sm text-gray-400 mb-2">Welcome</h2>
