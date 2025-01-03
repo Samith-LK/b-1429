@@ -99,49 +99,64 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
       <h1 className="text-4xl font-bold mb-8 text-blue-400">Projects</h1>
-      <div className="bento-grid">
-        {sampleProjects.map((project) => (
-          <motion.div
-            key={project.id}
-            layoutId={`project-${project.id}`}
-            onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
-            className={`bento-card cursor-pointer ${
-              expandedId === project.id ? "col-span-2 row-span-2" : ""
-            }`}
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="bento-card-image"
-            />
-            <h3 className="text-xl font-bold mb-2 text-blue-400">{project.title}</h3>
-            
-            <AnimatePresence>
-              {expandedId === project.id ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <p className="text-gray-300 mb-4">{project.fullContent}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 bg-blue-500 bg-opacity-20 rounded-full text-blue-400 text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ) : (
-                <p className="text-gray-400">{project.description}</p>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        ))}
-      </div>
+      <AnimatePresence>
+        <div className="bento-grid">
+          {sampleProjects.map((project) => (
+            <motion.div
+              key={project.id}
+              layoutId={`project-${project.id}`}
+              onClick={() => setExpandedId(expandedId === project.id ? null : project.id)}
+              className={`bento-card cursor-pointer ${
+                expandedId === project.id ? "col-span-2 row-span-2" : ""
+              }`}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="bento-card-image"
+              />
+              <h3 className="text-xl font-bold mb-2 text-blue-400">{project.title}</h3>
+              
+              <AnimatePresence mode="wait">
+                {expandedId === project.id ? (
+                  <motion.div
+                    key="expanded"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  >
+                    <p className="text-gray-300 mb-4">{project.fullContent}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-blue-500 bg-opacity-20 rounded-full text-blue-400 text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.p
+                    key="collapsed"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-gray-400"
+                  >
+                    {project.description}
+                  </motion.p>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
+      </AnimatePresence>
     </div>
   );
 };
