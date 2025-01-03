@@ -98,7 +98,7 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">Projects</h1>
+      <h1 className="text-4xl font-bold mb-8 text-blue-400">Projects</h1>
       <div className="bento-grid">
         {sampleProjects.map((project) => (
           <motion.div
@@ -114,7 +114,7 @@ const Projects = () => {
               alt={project.title}
               className="bento-card-image"
             />
-            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+            <h3 className="text-xl font-bold mb-2 text-blue-400">{project.title}</h3>
             
             <AnimatePresence>
               {expandedId === project.id ? (
