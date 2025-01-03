@@ -21,6 +21,7 @@ const Navigation = () => {
           <Link to="/sports" className="text-gray-400 hover:text-white">Sports</Link>
           <Link to="/volunteering" className="text-gray-400 hover:text-white">Volunteering</Link>
           <Link to="/competitions" className="text-gray-400 hover:text-white">Competitions</Link>
+          <Link to="/projects" className="text-gray-400 hover:text-white">Projects</Link>
           <Link to="/contact" className="text-gray-400 hover:text-white">Contact</Link>
           <NavigationMenu>
             <NavigationMenuList>
