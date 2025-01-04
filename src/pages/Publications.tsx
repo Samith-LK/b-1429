@@ -1,3 +1,5 @@
+import ScrollFadeIn from '@/components/ScrollFadeIn';
+
 const Publications = () => {
   const publications = [
     {
@@ -28,16 +30,20 @@ const Publications = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">Publications</h1>
+      <ScrollFadeIn>
+        <h1 className="text-4xl font-bold mb-8">Publications</h1>
+      </ScrollFadeIn>
       <div className="max-w-4xl mx-auto space-y-8">
         {publications.map((pub, index) => (
-          <div key={index} className="bg-card p-6 rounded-2xl border border-gray-800">
-            <h2 className="text-2xl font-bold mb-2 text-blue-400">{pub.title}</h2>
-            <p className="text-gray-400 mb-2">{pub.authors}</p>
-            <p className="text-gray-300 mb-4">{pub.journal} • {pub.year}</p>
-            <p className="text-gray-300 mb-4">{pub.abstract}</p>
-            <p className="text-sm text-gray-400">DOI: {pub.doi}</p>
-          </div>
+          <ScrollFadeIn key={index} delay={index * 0.1}>
+            <div className="bg-card p-6 rounded-2xl border border-gray-800">
+              <h2 className="text-2xl font-bold mb-2 text-blue-400">{pub.title}</h2>
+              <p className="text-gray-400 mb-2">{pub.authors}</p>
+              <p className="text-gray-300 mb-4">{pub.journal} • {pub.year}</p>
+              <p className="text-gray-300 mb-4">{pub.abstract}</p>
+              <p className="text-sm text-gray-400">DOI: {pub.doi}</p>
+            </div>
+          </ScrollFadeIn>
         ))}
       </div>
     </div>
