@@ -1,5 +1,5 @@
 import BentoCard from '@/components/BentoCard';
-import { motion } from 'framer-motion';
+import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const AboutPage = () => {
   const aboutContent = `As a dedicated researcher and innovator in the field of artificial intelligence and machine learning, 
@@ -55,29 +55,39 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">About Me</h1>
+      <ScrollFadeIn>
+        <h1 className="text-4xl font-bold mb-8">About Me</h1>
+      </ScrollFadeIn>
       <div className="max-w-4xl mx-auto">
         <div className="bento-grid">
-          <BentoCard 
-            title="About Me" 
-            content={aboutContent}
-          />
-          <BentoCard 
-            title="Travelling"
-            content={travelContent}
-            images={travelImages}
-          />
-          <BentoCard 
-            title="Countries Visited"
-            content={countriesContent}
-            images={countryFlags}
-            isFlags={true}
-          />
-          <BentoCard 
-            title="Innovations"
-            content={innovationContent}
-            images={innovationImages}
-          />
+          <ScrollFadeIn delay={0.1}>
+            <BentoCard 
+              title="About Me" 
+              content={aboutContent}
+            />
+          </ScrollFadeIn>
+          <ScrollFadeIn delay={0.2}>
+            <BentoCard 
+              title="Travelling"
+              content={travelContent}
+              images={travelImages}
+            />
+          </ScrollFadeIn>
+          <ScrollFadeIn delay={0.3}>
+            <BentoCard 
+              title="Countries Visited"
+              content={countriesContent}
+              images={countryFlags}
+              isFlags={true}
+            />
+          </ScrollFadeIn>
+          <ScrollFadeIn delay={0.4}>
+            <BentoCard 
+              title="Innovations"
+              content={innovationContent}
+              images={innovationImages}
+            />
+          </ScrollFadeIn>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
+import ScrollFadeIn from '@/components/ScrollFadeIn';
+
 const Volunteering = () => {
   const volunteerWork = [
     {
@@ -40,15 +42,19 @@ const Volunteering = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">Volunteer Work & Leadership</h1>
+      <ScrollFadeIn>
+        <h1 className="text-4xl font-bold mb-8">Volunteer Work & Leadership</h1>
+      </ScrollFadeIn>
       <div className="max-w-4xl mx-auto space-y-8">
         {volunteerWork.map((work, index) => (
-          <div key={index} className="bg-card p-6 rounded-2xl border border-gray-800">
-            <h2 className="text-2xl font-bold mb-2 text-blue-400">{work.title}</h2>
-            {work.description && (
-              <p className="text-gray-300">{work.description}</p>
-            )}
-          </div>
+          <ScrollFadeIn key={index} delay={index * 0.1}>
+            <div className="bg-card p-6 rounded-2xl border border-gray-800">
+              <h2 className="text-2xl font-bold mb-2 text-blue-400">{work.title}</h2>
+              {work.description && (
+                <p className="text-gray-300">{work.description}</p>
+              )}
+            </div>
+          </ScrollFadeIn>
         ))}
       </div>
     </div>

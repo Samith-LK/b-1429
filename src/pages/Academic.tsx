@@ -1,3 +1,5 @@
+import ScrollFadeIn from '@/components/ScrollFadeIn';
+
 const Academic = () => {
   const academicAchievements = [
     {
@@ -44,16 +46,20 @@ const Academic = () => {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white p-8">
-      <h1 className="text-4xl font-bold mb-8">Academic Achievements</h1>
+      <ScrollFadeIn>
+        <h1 className="text-4xl font-bold mb-8">Academic Achievements</h1>
+      </ScrollFadeIn>
       <div className="max-w-4xl mx-auto space-y-8">
         {academicAchievements.map((achievement, index) => (
-          <div key={index} className="bg-card p-6 rounded-2xl border border-gray-800">
-            <h2 className="text-2xl font-bold mb-2 text-blue-400">{achievement.title}</h2>
-            <p className="text-gray-400 mb-2">{achievement.institution}</p>
-            {achievement.description && (
-              <p className="text-gray-300">{achievement.description}</p>
-            )}
-          </div>
+          <ScrollFadeIn key={index} delay={index * 0.1}>
+            <div className="bg-card p-6 rounded-2xl border border-gray-800">
+              <h2 className="text-2xl font-bold mb-2 text-blue-400">{achievement.title}</h2>
+              <p className="text-gray-400 mb-2">{achievement.institution}</p>
+              {achievement.description && (
+                <p className="text-gray-300">{achievement.description}</p>
+              )}
+            </div>
+          </ScrollFadeIn>
         ))}
       </div>
     </div>

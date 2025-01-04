@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ScrollFadeIn from '@/components/ScrollFadeIn';
 
 const Awards = () => {
   const awards = [
@@ -42,17 +43,21 @@ const Awards = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-8 text-blue-400">ACHIEVEMENTS</h1>
+      <ScrollFadeIn>
+        <h1 className="text-3xl font-bold mb-8 text-blue-400">ACHIEVEMENTS</h1>
+      </ScrollFadeIn>
       <div className="grid gap-6">
         {awards.map((award, index) => (
-          <Card key={index} className="bg-card hover:bg-card-hover transition-colors border border-gray-800">
-            <CardHeader>
-              <CardTitle className="text-xl font-semibold text-blue-400">{award.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-300">{award.description}</p>
-            </CardContent>
-          </Card>
+          <ScrollFadeIn key={index} delay={index * 0.1}>
+            <Card className="bg-card hover:bg-card-hover transition-colors border border-gray-800">
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-blue-400">{award.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-300">{award.description}</p>
+              </CardContent>
+            </Card>
+          </ScrollFadeIn>
         ))}
       </div>
     </div>
