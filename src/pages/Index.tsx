@@ -14,8 +14,12 @@ const Index = () => {
         <ScrollFadeIn delay={0.1}>
           <Link 
             to="/about" 
-            className="col-span-1 md:col-span-2 lg:col-span-2 bento-card group"
-            style={{ height: '250px' }}
+            className="col-span-1 md:col-span-2 lg:col-span-2 bento-card group" 
+            style={{ 
+              width: 'calc(200% + 1.5rem)',  // Double width plus gap
+              height: '250px',
+              marginRight: '-1.5rem' // Compensate for the extra width
+            }}
           >
             <div className="flex flex-col md:flex-row items-center gap-6 h-full">
               <div className="relative flex-shrink-0">
