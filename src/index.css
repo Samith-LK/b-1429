@@ -43,7 +43,7 @@
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
@@ -55,7 +55,7 @@
 .bento-card {
   @apply bg-card p-6 rounded-2xl transition-all duration-300;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  height: 250px;
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -77,26 +77,25 @@
   margin-bottom: 1rem;
 }
 
-.col-span-2 {
-  grid-column: span 2;
+.group:hover svg {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-out;
 }
 
 @media (max-width: 1024px) {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .col-span-2 {
-    grid-column: span 2;
+    padding: 1rem;
   }
 }
 
 @media (max-width: 640px) {
   .bento-grid {
     grid-template-columns: 1fr;
+    padding: 1rem;
   }
   
-  .col-span-2 {
-    grid-column: span 1;
+  .bento-card {
+    min-height: 150px;
   }
 }
