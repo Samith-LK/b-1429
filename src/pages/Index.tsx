@@ -15,11 +15,7 @@ const Index = () => {
           <Link 
             to="/about" 
             className="col-span-1 md:col-span-2 lg:col-span-2 bento-card group" 
-            style={{ 
-              width: 'calc(200% + 1.5rem)',  // Double width plus gap
-              height: '250px',
-              marginRight: '-1.5rem' // Compensate for the extra width
-            }}
+            style={{ height: '250px' }}
           >
             <div className="flex flex-col md:flex-row items-center gap-6 h-full">
               <div className="relative flex-shrink-0">
@@ -50,9 +46,9 @@ const Index = () => {
           </Link>
         </ScrollFadeIn>
 
-        {/* Rest of the cards */}
+        {/* Experiences Card */}
         <ScrollFadeIn delay={0.2}>
-          <Link to="/experiences" className="bento-card group">
+          <Link to="/experiences" className="bento-card group" style={{ height: '250px' }}>
             <div className="h-40 w-full flex items-center justify-center mb-4">
               <img src={detailedAnalysis} alt="Experiences" className="h-32 w-32 object-contain" />
             </div>
@@ -61,8 +57,9 @@ const Index = () => {
           </Link>
         </ScrollFadeIn>
 
+        {/* Skills Card */}
         <ScrollFadeIn delay={0.3}>
-          <Link to="/skills" className="bento-card group">
+          <Link to="/skills" className="bento-card group" style={{ height: '250px' }}>
             <div className="h-40 w-full flex items-center justify-center mb-4">
               <img src={feelingProud} alt="Skills" className="h-32 w-32 object-contain" />
             </div>
@@ -71,6 +68,7 @@ const Index = () => {
           </Link>
         </ScrollFadeIn>
 
+        {/* Rest of the cards */}
         <ScrollFadeIn delay={0.4}>
           <Link to="/academic" className="bento-card group">
             <div className="h-40 w-full flex items-center justify-center mb-4">
