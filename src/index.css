@@ -77,9 +77,17 @@
   margin-bottom: 1rem;
 }
 
+.col-span-2 {
+  grid-column: span 2;
+}
+
 @media (max-width: 1024px) {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .col-span-2 {
+    grid-column: span 2;
   }
 }
 

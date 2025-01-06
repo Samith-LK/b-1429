@@ -15,10 +15,10 @@ const Index = () => {
           <ScrollFadeIn delay={0.1}>
             <Link 
               to="/about" 
-              className="bento-card group"
+              className="bento-card group col-span-2"
               style={{ 
-                height: '250px',
-                gridColumn: 'span 2'
+                gridColumn: 'span 2',
+                height: '250px'
               }}
             >
               <div className="flex flex-col md:flex-row items-center gap-6 h-full">
@@ -50,7 +50,6 @@ const Index = () => {
             </Link>
           </ScrollFadeIn>
 
-          {/* Experiences Card */}
           <ScrollFadeIn delay={0.2}>
             <Link to="/experiences" className="bento-card group">
               <div className="h-40 w-full flex items-center justify-center mb-4">
