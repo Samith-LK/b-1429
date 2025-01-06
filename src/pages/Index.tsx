@@ -9,67 +9,68 @@ import makerLaunch from "../images/undraw_maker-launch_fwzi.svg";
 const Index = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white p-4 md:p-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Profile Card */}
-        <ScrollFadeIn delay={0.1}>
-          <Link 
-            to="/about" 
-            className="col-span-1 md:col-span-2 lg:col-span-2 bento-card group" 
-            style={{ 
-              height: '250px',
-              gridColumn: 'span 2'
-            }}
-          >
-            <div className="flex flex-col md:flex-row items-center gap-6 h-full">
-              <div className="relative flex-shrink-0">
-                <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-blue-500 p-1">
-                  <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 p-2">
-                    <img 
-                      src={profilePic} 
-                      alt="Profile" 
-                      className="w-full h-full rounded-full object-cover"
-                    />
+      <div className="max-w-7xl mx-auto">
+        <div className="bento-grid">
+          {/* Welcome Card */}
+          <ScrollFadeIn delay={0.1}>
+            <Link 
+              to="/about" 
+              className="bento-card group"
+              style={{ 
+                height: '250px',
+                gridColumn: 'span 2'
+              }}
+            >
+              <div className="flex flex-col md:flex-row items-center gap-6 h-full">
+                <div className="relative flex-shrink-0">
+                  <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-blue-500 p-1">
+                    <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 p-2">
+                      <img 
+                        src={profilePic} 
+                        alt="Profile" 
+                        className="w-full h-full rounded-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="text-center md:text-left space-y-2 flex-grow">
-                <div className="space-y-1">
-                  <h2 className="text-sm text-blue-400 uppercase tracking-wider">Welcome</h2>
-                  <h1 className="text-2xl md:text-3xl font-bold text-blue-400">
-                    Hi, I'm <span className="font-extrabold">Samith Chathuranga</span>
-                  </h1>
+                <div className="text-center md:text-left space-y-2 flex-grow">
+                  <div className="space-y-1">
+                    <h2 className="text-sm text-blue-400 uppercase tracking-wider">Welcome</h2>
+                    <h1 className="text-2xl md:text-3xl font-bold text-blue-400">
+                      Hi, I'm <span className="font-extrabold">Samith Chathuranga</span>
+                    </h1>
+                  </div>
+                  <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                    A passionate researcher and innovator in artificial intelligence and machine learning, 
+                    with a focus on developing solutions that bridge the gap between theoretical advancement 
+                    and practical applications.
+                  </p>
                 </div>
-                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                  A passionate researcher and innovator in artificial intelligence and machine learning, 
-                  with a focus on developing solutions that bridge the gap between theoretical advancement 
-                  and practical applications.
-                </p>
               </div>
-            </div>
-          </Link>
-        </ScrollFadeIn>
+            </Link>
+          </ScrollFadeIn>
 
-        {/* Experiences Card */}
-        <ScrollFadeIn delay={0.2}>
-          <Link to="/experiences" className="bento-card group" style={{ height: '250px' }}>
-            <div className="h-40 w-full flex items-center justify-center mb-4">
-              <img src={detailedAnalysis} alt="Experiences" className="h-32 w-32 object-contain" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Experiences</h3>
-            <p className="text-gray-400">Professional journey and industry expertise</p>
-          </Link>
-        </ScrollFadeIn>
+          {/* Experiences Card */}
+          <ScrollFadeIn delay={0.2}>
+            <Link to="/experiences" className="bento-card group">
+              <div className="h-40 w-full flex items-center justify-center mb-4">
+                <img src={detailedAnalysis} alt="Experiences" className="h-32 w-32 object-contain" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Experiences</h3>
+              <p className="text-gray-400">Professional journey and industry expertise</p>
+            </Link>
+          </ScrollFadeIn>
 
-        {/* Skills Card */}
-        <ScrollFadeIn delay={0.3}>
-          <Link to="/skills" className="bento-card group" style={{ height: '250px' }}>
-            <div className="h-40 w-full flex items-center justify-center mb-4">
-              <img src={feelingProud} alt="Skills" className="h-32 w-32 object-contain" />
-            </div>
-            <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
-            <p className="text-gray-400">Technical skills and professional competencies</p>
-          </Link>
-        </ScrollFadeIn>
+          {/* Skills Card */}
+          <ScrollFadeIn delay={0.3}>
+            <Link to="/skills" className="bento-card group">
+              <div className="h-40 w-full flex items-center justify-center mb-4">
+                <img src={feelingProud} alt="Skills" className="h-32 w-32 object-contain" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Skills & Expertise</h3>
+              <p className="text-gray-400">Technical skills and professional competencies</p>
+            </Link>
+          </ScrollFadeIn>
 
         {/* Academic Card */}
         <ScrollFadeIn delay={0.4}>
@@ -158,6 +159,7 @@ const Index = () => {
             <p className="text-gray-400">Reach out for collaborations and opportunities</p>
           </Link>
         </ScrollFadeIn>
+        </div>
       </div>
     </div>
   );
