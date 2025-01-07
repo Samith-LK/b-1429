@@ -12,11 +12,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[#121212] text-white p-4 md:p-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Profile Card */}
-        <Link to="/about" className="col-span-1 md:col-span-2 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="relative">
-              <div className="w-36 h-36 md:w-52 md:h-52 rounded-full bg-blue-500 p-1">
+        {/* Profile Card - Now with better mobile responsiveness */}
+        <Link 
+          to="/about" 
+          className="col-span-1 md:col-span-2 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-4 md:p-8"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+            <div className="relative w-full md:w-auto flex justify-center md:justify-start">
+              <div className="w-28 h-28 md:w-52 md:h-52 rounded-full bg-blue-500 p-1">
                 <div className="w-full h-full rounded-full overflow-hidden bg-gray-900 p-2">
                   <img 
                     src={profilePic} 
@@ -26,14 +29,14 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="text-center md:text-left space-y-4">
-              <div className="space-y-2">
+            <div className="text-center md:text-left space-y-3 md:space-y-4 w-full md:w-auto">
+              <div className="space-y-1 md:space-y-2">
                 <h2 className="text-sm text-blue-400 uppercase tracking-wider">Welcome</h2>
-                <h1 className="text-3xl md:text-4xl font-bold text-blue-400">
+                <h1 className="text-2xl md:text-4xl font-bold text-blue-400">
                   Hi, I'm <span className="font-extrabold">Samith Chathuranga</span>
                 </h1>
               </div>
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-2xl">
+              <p className="text-sm md:text-lg text-gray-300 leading-relaxed max-w-2xl">
                 A passionate researcher and innovator in artificial intelligence and machine learning, 
                 with a focus on developing solutions that bridge the gap between theoretical advancement 
                 and practical applications.
