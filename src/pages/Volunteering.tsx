@@ -68,7 +68,7 @@ const Volunteering = () => {
               title={work.title}
               content={work.description}
               images={work.images}
-              maxPreviewLength={100}
+              maxPreviewLength={0}  // Set to 0 to initially hide the content
             />
           </ScrollFadeIn>
         ))}
