@@ -23,14 +23,24 @@ const BentoCard = ({
   return (
     <motion.div
       layout
-      className={`bento-card group cursor-pointer ${isExpanded ? 'h-auto' : 'h-[150px]'}`}
+      className={`bento-card group cursor-pointer relative ${isExpanded ? 'h-auto' : 'h-[150px]'}`}
       onClick={() => setIsExpanded(!isExpanded)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <h2 className="text-2xl font-bold mb-4 text-blue-400">{title}</h2>
+      {images && images.length > 0 && (
+        <div className="absolute top-4 right-4 w-12 h-12">
+          <img
+            src={images[0]}
+            alt="Company Logo"
+            className="w-full h-full object-contain rounded-lg"
+          />
+        </div>
+      )}
+      
+      <h2 className="text-2xl font-bold mb-4 text-blue-400 pr-16">{title}</h2>
       
       <AnimatePresence mode="wait">
         {isExpanded ? (
