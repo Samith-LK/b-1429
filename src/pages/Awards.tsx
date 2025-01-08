@@ -43,11 +43,11 @@ const Awards = () => {
   ];
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-8 px-4 max-w-7xl">
       <ScrollFadeIn>
         <h1 className="text-3xl font-bold mb-8 text-blue-400">ACHIEVEMENTS</h1>
       </ScrollFadeIn>
-      <div className="grid gap-6">
+      <div className="bento-grid">
         {awards.map((award, index) => (
           <ScrollFadeIn key={index} delay={index * 0.1}>
             <BentoCard
