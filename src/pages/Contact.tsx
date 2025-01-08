@@ -1,4 +1,5 @@
 import ScrollFadeIn from '@/components/ScrollFadeIn';
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -45,6 +46,46 @@ const Contact = () => {
                 To lead automation initiatives by leveraging my expertise in AI, IoT, and system integration,
                 driving efficiency and delivering innovative solutions that align with organizational goals.
               </p>
+            </div>
+          </ScrollFadeIn>
+
+          <ScrollFadeIn delay={0.3}>
+            <div className="bg-[#1a1a1a] p-6 rounded-lg">
+              <h2 className="text-2xl font-semibold mb-4 text-blue-400">Social Media</h2>
+              <div className="flex space-x-6 justify-center">
+                <a 
+                  href="https://facebook.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  <Facebook size={32} />
+                </a>
+                <a 
+                  href="https://instagram.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  <Instagram size={32} />
+                </a>
+                <a 
+                  href="https://linkedin.com/in/scperera" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  <Linkedin size={32} />
+                </a>
+                <a 
+                  href="https://twitter.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  <Twitter size={32} />
+                </a>
+              </div>
             </div>
           </ScrollFadeIn>
         </div>
