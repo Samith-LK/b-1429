@@ -1,11 +1,13 @@
 import ScrollFadeIn from '@/components/ScrollFadeIn';
+import BentoCard from '@/components/BentoCard';
 
 const Sports = () => {
   const sportsAchievements = [
     {
       title: "Champions - Fresher's Table Tennis tournament 2013",
       institution: "Wayamba University of Sri Lanka",
-      description: ""
+      description: "Won the championship title in the university-wide table tennis tournament for freshers, demonstrating exceptional skill and sportsmanship.",
+      images: ["/lovable-uploads/2e7d8ff6-f40b-49d4-be8f-28a5a3a357b3.png"]
     },
     {
       title: "Champions - Inter Faculty Table Tennis Tournament 2015",
@@ -46,15 +48,12 @@ const Sports = () => {
       <div className="max-w-4xl mx-auto space-y-8">
         {sportsAchievements.map((achievement, index) => (
           <ScrollFadeIn key={index} delay={index * 0.1}>
-            <div className="bg-card p-6 rounded-2xl border border-gray-800">
-              <h2 className="text-2xl font-bold mb-2 text-blue-400">{achievement.title}</h2>
-              {achievement.institution && (
-                <p className="text-gray-400 mb-2">{achievement.institution}</p>
-              )}
-              {achievement.description && (
-                <p className="text-gray-300">{achievement.description}</p>
-              )}
-            </div>
+            <BentoCard
+              title={achievement.title}
+              content={`${achievement.institution ? `${achievement.institution} - ` : ''}${achievement.description}`}
+              images={achievement.images}
+              maxPreviewLength={0}
+            />
           </ScrollFadeIn>
         ))}
       </div>

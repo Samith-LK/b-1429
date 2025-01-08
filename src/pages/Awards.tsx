@@ -1,11 +1,12 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ScrollFadeIn from '@/components/ScrollFadeIn';
+import BentoCard from '@/components/BentoCard';
 
 const Awards = () => {
   const awards = [
     {
       title: "FAS Awards 2016 - WUSL",
-      description: "In recognition of the valuable contribution made to National | Social | Institutional development during the Undergraduate period"
+      description: "In recognition of the valuable contribution made to National | Social | Institutional development during the Undergraduate period",
+      images: ["/lovable-uploads/2e7d8ff6-f40b-49d4-be8f-28a5a3a357b3.png"]
     },
     {
       title: "Champions - SAITM Robotics Challenge 2015",
@@ -49,14 +50,12 @@ const Awards = () => {
       <div className="grid gap-6">
         {awards.map((award, index) => (
           <ScrollFadeIn key={index} delay={index * 0.1}>
-            <Card className="bg-card hover:bg-card-hover transition-colors border border-gray-800">
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold text-blue-400">{award.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-300">{award.description}</p>
-              </CardContent>
-            </Card>
+            <BentoCard
+              title={award.title}
+              content={award.description}
+              images={award.images}
+              maxPreviewLength={0}
+            />
           </ScrollFadeIn>
         ))}
       </div>

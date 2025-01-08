@@ -1,4 +1,5 @@
 import ScrollFadeIn from '@/components/ScrollFadeIn';
+import BentoCard from '@/components/BentoCard';
 
 interface Experience {
   title: string;
@@ -55,37 +56,16 @@ const Experiences = () => {
         </ScrollFadeIn>
         {experiences.map((experience, index) => (
           <ScrollFadeIn key={index} delay={index * 0.1}>
-            <div className="bg-card p-6 rounded-2xl border border-gray-800">
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-2 text-blue-400">{experience.title}</h2>
-                  <h3 className="text-xl text-gray-300 mb-2">{experience.company}</h3>
-                  <p className="text-gray-400 mb-4">{experience.period}</p>
-                  <ul className="space-y-2">
-                    {experience.achievements.map((achievement, i) => (
-                      Array.isArray(achievement) ? (
-                        <ul key={i} className="list-disc pl-6 space-y-1">
-                          {achievement.map((subItem, j) => (
-                            <li key={`${i}-${j}`} className="text-gray-300">{subItem}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <li key={i} className="text-gray-300">{achievement}</li>
-                      )
-                    ))}
-                  </ul>
-                </div>
-                {experience.logo && (
-                  <div className="ml-4 flex-shrink-0">
-                    <img 
-                      src={experience.logo} 
-                      alt={`${experience.company} logo`} 
-                      className="w-32 h-32 object-cover rounded-lg bg-[#ea384c]"
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
+            <BentoCard
+              title={`${experience.title} at ${experience.company}`}
+              content={`${experience.period}\n\n${experience.achievements.map(achievement => 
+                Array.isArray(achievement) 
+                  ? achievement.join('\n• ')
+                  : achievement
+              ).join('\n• ')}`}
+              images={experience.logo ? [experience.logo] : []}
+              maxPreviewLength={0}
+            />
           </ScrollFadeIn>
         ))}
       </div>
