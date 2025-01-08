@@ -63,6 +63,7 @@ const Experiences = () => {
               ).join('\n')}`}
               images={experience.logo ? [experience.logo] : []}
               maxPreviewLength={0}
+              isExperience={true}
             />
           </ScrollFadeIn>
         ))}
