@@ -22,6 +22,25 @@ const BentoCard = ({
   const preview = content.slice(0, maxPreviewLength);
   const hasMore = content.length > maxPreviewLength;
 
+  const formatContent = (content: string) => {
+    return content.split('\n').map((line, index) => (
+      <div key={index} className="flex items-start space-x-2 py-1">
+        {line.trim() && (
+          <>
+            {!line.startsWith('•') && !line.startsWith('-') ? (
+              <>
+                <span className="text-blue-400 mt-1">•</span>
+                <span>{line}</span>
+              </>
+            ) : (
+              <span className="ml-4">{line}</span>
+            )}
+          </>
+        )}
+      </div>
+    ));
+  };
+
   return (
     <motion.div
       layout
@@ -69,8 +88,8 @@ const BentoCard = ({
                 </div>
               </div>
             )}
-            <div className="text-gray-300">
-              {content}
+            <div className="text-gray-300 text-left">
+              {formatContent(content)}
             </div>
           </motion.div>
         ) : (
