@@ -23,7 +23,7 @@ const BentoCard = ({
   return (
     <motion.div
       layout
-      className="bento-card group cursor-pointer"
+      className={`bento-card group cursor-pointer ${isExpanded ? 'h-auto' : 'h-[150px]'}`}
       onClick={() => setIsExpanded(!isExpanded)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -32,29 +32,6 @@ const BentoCard = ({
     >
       <h2 className="text-2xl font-bold mb-4 text-blue-400">{title}</h2>
       
-      {images.length > 0 && !isExpanded && !isFlags && (
-        <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
-          <img 
-            src={images[0]} 
-            alt={title} 
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
-
-      {images.length > 0 && !isExpanded && isFlags && (
-        <div className="flex flex-wrap gap-2 mb-4 justify-center">
-          {images.slice(0, 7).map((flag, index) => (
-            <img 
-              key={index}
-              src={flag}
-              alt={`Flag ${index + 1}`}
-              className="w-8 h-8 object-cover rounded-full"
-            />
-          ))}
-        </div>
-      )}
-
       <AnimatePresence mode="wait">
         {isExpanded ? (
           <motion.div
@@ -92,11 +69,15 @@ const BentoCard = ({
             exit={{ opacity: 0 }}
             className="text-gray-300"
           >
-            {preview}
-            {hasMore && (
-              <span className="text-blue-400 ml-2 hover:text-blue-300">
-                ... See More
-              </span>
+            {maxPreviewLength === 0 ? null : (
+              <>
+                {preview}
+                {hasMore && (
+                  <span className="text-blue-400 ml-2 hover:text-blue-300">
+                    ... See More
+                  </span>
+                )}
+              </>
             )}
           </motion.div>
         )}
