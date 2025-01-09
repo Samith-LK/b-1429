@@ -30,10 +30,10 @@ const BentoCard = ({
             {!line.startsWith('•') && !line.startsWith('-') ? (
               <>
                 <span className="text-blue-400 mt-1">•</span>
-                <span>{line}</span>
+                <span className="text-sm sm:text-base">{line}</span>
               </>
             ) : (
-              <span className="ml-4">{line}</span>
+              <span className="ml-4 text-sm sm:text-base">{line}</span>
             )}
           </>
         )}
@@ -52,7 +52,7 @@ const BentoCard = ({
       transition={{ duration: 0.2 }}
     >
       {isExperience && images && images.length > 0 && (
-        <div className="absolute top-4 right-4 w-12 h-12">
+        <div className="absolute top-4 right-4 w-10 h-10 sm:w-12 sm:h-12">
           <img
             src={images[0]}
             alt="Company logo"
@@ -61,7 +61,7 @@ const BentoCard = ({
         </div>
       )}
       
-      <h2 className="text-2xl font-bold mb-4 text-blue-400 pr-16">{title}</h2>
+      <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-4 text-blue-400 pr-16">{title}</h2>
       
       <AnimatePresence mode="wait">
         {isExpanded ? (
@@ -70,18 +70,18 @@ const BentoCard = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
             {!isExperience && images && images.length > 0 && (
-              <div className="relative w-full h-64 overflow-hidden rounded-lg mb-4">
+              <div className="relative w-full h-48 sm:h-64 overflow-hidden rounded-lg mb-3 sm:mb-4">
                 <div className="flex animate-slide">
                   {[...images, ...images].map((image, index) => (
                     <img
                       key={index}
                       src={image}
                       alt={`${title} ${index + 1}`}
-                      className={`w-full h-64 object-cover flex-shrink-0 ${
-                        isFlags ? 'w-32 mx-2' : 'w-full'
+                      className={`w-full h-48 sm:h-64 object-cover flex-shrink-0 ${
+                        isFlags ? 'w-24 sm:w-32 mx-2' : 'w-full'
                       }`}
                     />
                   ))}
@@ -98,7 +98,7 @@ const BentoCard = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="text-gray-300"
+            className="text-gray-300 text-sm sm:text-base"
           >
             {maxPreviewLength === 0 ? null : (
               <>
