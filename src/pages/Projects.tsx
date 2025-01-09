@@ -14,83 +14,51 @@ interface Project {
 const sampleProjects: Project[] = [
   {
     id: 1,
-    title: "AI-Powered Healthcare Assistant",
-    description: "A machine learning system for early disease detection",
-    image: "https://cdn.pixabay.com/photo/2021/09/25/05/25/robot-6654029_960_720.png",
-    fullContent: "An advanced healthcare assistant that uses machine learning algorithms to analyze patient data and predict potential health risks. The system processes medical records, lab results, and vital signs to provide early warning signs of diseases.",
-    technologies: ["Python", "TensorFlow", "React", "Node.js"]
+    title: "Intelicart - AI Powered E-commerce Platform",
+    description: "Transforming E-commerce Search Using Open-Source LLMs and CLIP-Powered Multi-model Architecture.",
+    image: "https://im.runware.ai/image/ws/0.5/ii/ai-ecommerce.webp",
+    fullContent: "Transforming E-commerce Search Using Open-Source LLMs and CLIP-Powered Multi-model Architecture. An innovative platform that leverages artificial intelligence to enhance the online shopping experience through advanced search capabilities and personalized recommendations.",
+    technologies: ["AI/ML", "LLMs", "CLIP", "React", "Python"]
   },
   {
     id: 2,
-    title: "Smart City Infrastructure",
-    description: "IoT-based urban monitoring system",
-    image: "https://im.runware.ai/image/ws/0.5/ii/smart-city.webp",
-    fullContent: "A comprehensive smart city solution that integrates IoT sensors throughout urban infrastructure to monitor traffic, air quality, and energy usage in real-time. The system helps city planners make data-driven decisions.",
-    technologies: ["IoT", "AWS", "React", "Python"]
+    title: "High Capacity Heavy-Duty Continues Shaking Incubator",
+    description: "Chemical shaking device with speed and temperature control used in molecular plantation.",
+    image: "https://im.runware.ai/image/ws/0.5/ii/biotech.webp",
+    fullContent: "Chemical shaking device with speed and temperature control used in molecular plantation for the Department of Biochemistry and Molecular Biology, Faculty of Medicine, University of Colombo. Advanced system for bacterial growth and molecular studies.",
+    technologies: ["Embedded Systems", "Temperature Control", "Mechanical Engineering"]
   },
   {
     id: 3,
-    title: "Blockchain Supply Chain",
-    description: "Decentralized logistics tracking platform",
-    image: "https://im.runware.ai/image/ws/0.5/ii/blockchain-supply.webp",
-    fullContent: "A blockchain-based supply chain management system that ensures transparency and traceability of products from manufacturer to consumer. Features smart contracts for automated compliance and payments.",
-    technologies: ["Ethereum", "Solidity", "React", "Node.js"]
+    title: "Autonomous Robots",
+    description: "Designed and developed various task-oriented autonomous robots for all island robotics competitions.",
+    image: "https://im.runware.ai/image/ws/0.5/ii/robotics.webp",
+    fullContent: "Designed and developed various task-oriented autonomous robots for all island robotics competitions. Included capabilities: Object detection and manipulation, Grid navigation, Color detection, Volume measuring, Maze solving, and any given specific tasks.",
+    technologies: ["Robotics", "Computer Vision", "AI", "Embedded Systems"]
   },
   {
     id: 4,
-    title: "Virtual Reality Education",
-    description: "Immersive learning platform",
-    image: "https://im.runware.ai/image/ws/0.5/ii/vr-education.webp",
-    fullContent: "An educational platform that uses virtual reality to create immersive learning experiences. Students can explore historical sites, conduct virtual science experiments, and interact with 3D models.",
-    technologies: ["Unity", "C#", "WebXR", "Three.js"]
+    title: "Carrom Scoring and Judging Framework",
+    description: "Computer vision-based automated system for unbiased game scoring and judging support.",
+    image: "https://im.runware.ai/image/ws/0.5/ii/computer-vision.webp",
+    fullContent: "Computer vision-based automated system is to give an unbiased result for the game and support and help to carry out the duty assigned for judges. Advanced image processing algorithms for real-time game analysis.",
+    technologies: ["Computer Vision", "Machine Learning", "Real-time Processing"]
   },
   {
     id: 5,
-    title: "Sustainable Energy Monitor",
-    description: "Renewable energy optimization system",
-    image: "https://im.runware.ai/image/ws/0.5/ii/renewable-energy.webp",
-    fullContent: "A monitoring and optimization system for renewable energy installations that uses AI to predict energy production and consumption patterns, helping maximize efficiency and reduce waste.",
-    technologies: ["Python", "TensorFlow", "React", "PostgreSQL"]
+    title: "Low Cost Pump to Regulate Delivery of Drug Infusion",
+    description: "A machine which can gradually administer intravenous medications to patients.",
+    image: "https://im.runware.ai/image/ws/0.5/ii/medical-device.webp",
+    fullContent: "A machine which can gradually administer intravenous medications to patients. Designed to be cost-effective while maintaining high precision and safety standards for medical applications.",
+    technologies: ["Medical Devices", "Embedded Systems", "Control Systems"]
   },
   {
     id: 6,
-    title: "Augmented Reality Shopping",
-    description: "AR-powered retail experience",
-    image: "https://im.runware.ai/image/ws/0.5/ii/ar-shopping.webp",
-    fullContent: "An augmented reality shopping platform that allows users to visualize products in their space before purchasing. Features include virtual try-on for clothing and furniture placement visualization.",
-    technologies: ["ARKit", "React Native", "Node.js", "Three.js"]
-  },
-  {
-    id: 7,
-    title: "Autonomous Drone System",
-    description: "AI-powered drone navigation",
-    image: "https://im.runware.ai/image/ws/0.5/ii/autonomous-drone.webp",
-    fullContent: "An autonomous drone system that uses computer vision and AI for navigation, obstacle avoidance, and task automation. Applications include surveillance, delivery, and aerial photography.",
-    technologies: ["Python", "OpenCV", "ROS", "TensorFlow"]
-  },
-  {
-    id: 8,
-    title: "Quantum Computing Simulator",
-    description: "Educational quantum computing platform",
-    image: "https://im.runware.ai/image/ws/0.5/ii/quantum-computing.webp",
-    fullContent: "A quantum computing simulator that helps students and researchers understand quantum algorithms and circuits. Includes interactive tutorials and visualization tools for quantum states.",
-    technologies: ["Python", "Qiskit", "React", "WebAssembly"]
-  },
-  {
-    id: 9,
-    title: "Natural Language Processing API",
-    description: "Advanced text analysis service",
-    image: "https://im.runware.ai/image/ws/0.5/ii/nlp-api.webp",
-    fullContent: "A comprehensive NLP API that provides services like sentiment analysis, entity recognition, and text classification. Supports multiple languages and domain-specific models.",
-    technologies: ["Python", "SpaCy", "FastAPI", "Docker"]
-  },
-  {
-    id: 10,
-    title: "Cybersecurity Defense System",
-    description: "AI-powered threat detection",
-    image: "https://im.runware.ai/image/ws/0.5/ii/cybersecurity.webp",
-    fullContent: "An advanced cybersecurity system that uses AI to detect and prevent network threats in real-time. Features include anomaly detection, automated response, and threat intelligence integration.",
-    technologies: ["Python", "TensorFlow", "Elasticsearch", "Kubernetes"]
+    title: "Fully Autonomous Face Tracking and Task Oriented Humanoid Robot",
+    description: "Advanced humanoid robot with face tracking and autonomous task execution capabilities.",
+    image: "https://im.runware.ai/image/ws/0.5/ii/humanoid-robot.webp",
+    fullContent: "Advanced humanoid robot system featuring real-time face tracking capabilities and autonomous task execution. Integrates computer vision, motion control, and artificial intelligence for human-robot interaction.",
+    technologies: ["Robotics", "Computer Vision", "AI", "Motion Control"]
   }
 ];
 
@@ -104,7 +72,7 @@ const Projects = () => {
       </ScrollFadeIn>
       
       <AnimatePresence>
-        <div className="bento-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sampleProjects.map((project, index) => (
             <ScrollFadeIn key={project.id} delay={index * 0.1}>
               <motion.div
@@ -121,7 +89,7 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="bento-card-image"
+                  className="w-full h-48 object-cover rounded-lg mb-4"
                 />
                 <h3 className="text-xl font-bold mb-2 text-blue-400">{project.title}</h3>
                 
