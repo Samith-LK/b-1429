@@ -4,22 +4,49 @@ import BentoCard from '@/components/BentoCard';
 const Competitions = () => {
   const competitions = [
     {
-      title: "International Hackathon Winner",
-      year: "2023",
-      description: "• First place in AI/ML category at Global Tech Hackathon\n• Developed an innovative solution using cutting-edge AI/ML\n• Recognition for technical excellence",
-      images: ["/lovable-uploads/2e7d8ff6-f40b-49d4-be8f-28a5a3a357b3.png"]
+      title: "FAS Awards 2016 - WUSL",
+      description: "• In recognition of valuable contribution made to National | Social | Institutional development during the Undergraduate period",
+      images: []
     },
     {
-      title: "Coding Competition Finalist",
-      year: "2022",
-      description: "• Top 5 finalist in national coding championship\n• Advanced problem-solving demonstration\n• Algorithm optimization excellence",
-      images: ["/lovable-uploads/2e7d8ff6-f40b-49d4-be8f-28a5a3a357b3.png"]
+      title: "Champions - SAITM Robotics Challenge 2015",
+      description: "• All Island Robotics Competition",
+      images: []
     },
     {
-      title: "Innovation Challenge Winner",
-      year: "2021",
-      description: "• First prize for innovative sustainability solution\n• Impact-driven project development\n• Environmental technology innovation",
-      images: ["/lovable-uploads/2e7d8ff6-f40b-49d4-be8f-28a5a3a357b3.png"]
+      title: "Champions - Technosoft 2015 Robotics Competition",
+      description: "• All Island Robotics Competition",
+      images: []
+    },
+    {
+      title: "1st Runner up - IESL RoboGames 2015",
+      description: "• All Island Robotics Competition",
+      images: []
+    },
+    {
+      title: "5th place - FASBOT Robotics Competition 2013",
+      description: "• Wayamba University of Sri Lanka",
+      images: []
+    },
+    {
+      title: "Among Top 17 Teams - OpenAI Hackathon 2024",
+      description: "• Hatch Works & Veracity Group",
+      images: []
+    },
+    {
+      title: "Among Top 20 Teams - IEEE IES Generative AI Hackathon 2024",
+      description: "• IEEE Industrial Electronics Society",
+      images: []
+    },
+    {
+      title: "Ranked 23rd - ACES CODERS 2015",
+      description: "• All Island Programming Competition",
+      images: []
+    },
+    {
+      title: "Ranked 772 (World) & 129 (Sri Lanka) - IEEEXtreme Programming Competition 2015",
+      description: "• Global 24-hour Programming Competition",
+      images: []
     }
   ];
 
@@ -33,7 +60,7 @@ const Competitions = () => {
           <ScrollFadeIn key={index} delay={index * 0.1}>
             <BentoCard
               title={competition.title}
-              content={`${competition.year}\n\n${competition.description}`}
+              content={competition.description}
               images={competition.images}
               maxPreviewLength={0}
             />
