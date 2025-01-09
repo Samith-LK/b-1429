@@ -7,6 +7,7 @@ interface BentoCardProps {
   maxPreviewLength?: number;
   images?: string[];
   isFlags?: boolean;
+  isExperience?: boolean;
 }
 
 const BentoCard = ({ 
@@ -14,47 +15,54 @@ const BentoCard = ({
   content, 
   maxPreviewLength = 150,
   images = [],
-  isFlags = false 
+  isFlags = false,
+  isExperience = false
 }: BentoCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const preview = content.slice(0, maxPreviewLength);
   const hasMore = content.length > maxPreviewLength;
 
+  const formatContent = (content: string) => {
+    return content.split('\n').map((line, index) => (
+      <div key={index} className="flex items-start space-x-2 py-1">
+        {line.trim() && (
+          <>
+            {!line.startsWith('•') && !line.startsWith('-') ? (
+              <>
+                <span className="text-blue-400 mt-1">•</span>
+                <span>{line}</span>
+              </>
+            ) : (
+              <span className="ml-4">{line}</span>
+            )}
+          </>
+        )}
+      </div>
+    ));
+  };
+
   return (
     <motion.div
       layout
-      className="bento-card group cursor-pointer"
+      className={`bento-card group cursor-pointer ${isExpanded ? 'h-auto' : 'h-[150px]'} relative`}
       onClick={() => setIsExpanded(!isExpanded)}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
     >
-      <h2 className="text-2xl font-bold mb-4 text-blue-400">{title}</h2>
-      
-      {images.length > 0 && !isExpanded && !isFlags && (
-        <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
-          <img 
-            src={images[0]} 
-            alt={title} 
-            className="w-full h-full object-cover"
+      {isExperience && images && images.length > 0 && (
+        <div className="absolute top-4 right-4 w-12 h-12">
+          <img
+            src={images[0]}
+            alt="Company logo"
+            className="w-full h-full object-contain"
           />
         </div>
       )}
-
-      {images.length > 0 && !isExpanded && isFlags && (
-        <div className="flex flex-wrap gap-2 mb-4 justify-center">
-          {images.slice(0, 7).map((flag, index) => (
-            <img 
-              key={index}
-              src={flag}
-              alt={`Flag ${index + 1}`}
-              className="w-8 h-8 object-cover rounded-full"
-            />
-          ))}
-        </div>
-      )}
-
+      
+      <h2 className="text-2xl font-bold mb-4 text-blue-400 pr-16">{title}</h2>
+      
       <AnimatePresence mode="wait">
         {isExpanded ? (
           <motion.div
@@ -64,7 +72,7 @@ const BentoCard = ({
             exit={{ opacity: 0 }}
             className="space-y-4"
           >
-            {images.length > 0 && (
+            {!isExperience && images && images.length > 0 && (
               <div className="relative w-full h-64 overflow-hidden rounded-lg mb-4">
                 <div className="flex animate-slide">
                   {[...images, ...images].map((image, index) => (
@@ -80,8 +88,8 @@ const BentoCard = ({
                 </div>
               </div>
             )}
-            <div className="text-gray-300">
-              {content}
+            <div className="text-gray-300 text-left">
+              {formatContent(content)}
             </div>
           </motion.div>
         ) : (
@@ -92,11 +100,15 @@ const BentoCard = ({
             exit={{ opacity: 0 }}
             className="text-gray-300"
           >
-            {preview}
-            {hasMore && (
-              <span className="text-blue-400 ml-2 hover:text-blue-300">
-                ... See More
-              </span>
+            {maxPreviewLength === 0 ? null : (
+              <>
+                {preview}
+                {hasMore && (
+                  <span className="text-blue-400 ml-2 hover:text-blue-300">
+                    ... See More
+                  </span>
+                )}
+              </>
             )}
           </motion.div>
         )}

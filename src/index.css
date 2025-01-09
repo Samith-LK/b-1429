@@ -43,7 +43,7 @@
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 1rem;
   width: 100%;
@@ -55,7 +55,7 @@
 .bento-card {
   @apply bg-card p-6 rounded-2xl transition-all duration-300;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 200px;
+  min-height: 150px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -97,5 +97,12 @@
   
   .bento-card {
     min-height: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
   }
 }
