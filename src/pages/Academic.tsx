@@ -49,7 +49,7 @@ const Academic = () => {
       <ScrollFadeIn>
         <h1 className="text-4xl font-bold mb-8">Academic Achievements</h1>
       </ScrollFadeIn>
-      <div className="max-w-4xl mx-auto space-y-8">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {academicAchievements.map((achievement, index) => (
           <ScrollFadeIn key={index} delay={index * 0.1}>
             <div className="bg-card p-6 rounded-2xl border border-gray-800">
