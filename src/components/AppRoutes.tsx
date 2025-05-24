@@ -13,6 +13,7 @@ const Competitions = lazy(() => import("@/pages/Competitions"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const Awards = lazy(() => import("@/pages/Awards"));
 const Projects = lazy(() => import("@/pages/Projects"));
+const BlogPage = lazy(() => import("@/pages/BlogPage")); // <-- Add this line
 
 // Loading fallback component with better visual feedback
 const LoadingFallback = () => (
@@ -41,6 +42,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/awards" element={<Awards />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/blog" element={<BlogPage />} /> {/* <-- Add this line for the blog route */}
         {/* Catch-all route for 404 */}
         <Route path="*" element={
           <div className="min-h-screen bg-[#121212] flex items-center justify-center text-white">
